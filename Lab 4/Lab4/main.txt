@@ -1,0 +1,4 @@
+1) Dic
+2) Hash
+
+9) Exit

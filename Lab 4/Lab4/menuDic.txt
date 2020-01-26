@@ -1,0 +1,9 @@
+			What do want
+
+1) Add Element
+2) Delete Element
+3) Find Element
+4) Output HashTable
+5) Add many elements
+
+9) Exit
