@@ -1,0 +1,7 @@
+Chose function
+
+1) Add element
+2) Remove element
+3) Search Element
+
+9) Back
