@@ -1,0 +1,9 @@
+Chose function
+
+1) Search Element
+2) Add element (unoptimized algorithm)
+3) Add element (optimized algorithm)
+4) Remove element (unoptimized algorithm)
+5) Remove element (optimized algorithm)
+
+9) Back

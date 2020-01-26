@@ -1,0 +1,9 @@
+Chose function
+
+1) Add element
+2) Remove element
+3) Search element
+4) Search Max element
+5) Search Min element
+
+9) Back
