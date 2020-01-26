@@ -1,0 +1,7 @@
+Coose function
+
+1) Push
+2) Pop
+3) Delete Stack
+
+9) Back

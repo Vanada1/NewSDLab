@@ -1,0 +1,7 @@
+Coose function
+
+1) Add element
+2) Extraction
+3) Delete queue
+
+9) Back
