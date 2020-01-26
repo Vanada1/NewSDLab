@@ -1,0 +1,9 @@
+	|||MENU|||
+1) Delete item
+2) Insert an item to the beginning
+3) Insert an item at the end
+4) Paste after a specific item
+5) Sorting the list
+6) Line Search
+7) Binary Search
+9) Exit
