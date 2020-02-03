@@ -9,8 +9,7 @@ using namespace std;
 
 void RBTreeMenu()
 {
-	//TODO: nullptr
-	srand(time(NULL));
+	srand(time(nullptr));
 	bool ending = true;
 	//TODO: Почему здесь?
 	int control = 0;

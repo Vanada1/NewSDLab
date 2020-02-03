@@ -10,8 +10,7 @@ void ALVTreeMenu()
 	ALVTree* Tree = new ALVTree();
 	cout << "Enter the count of elemetns\t";
 	number = WriteInt();
-	//TODO: nullptr
-	srand(time(NULL));
+	srand(time(nullptr));
 	for (int i = 0; i < number; i++)
 	{
 		Tree->Root = Tree->AddElement(Tree->Root, rand() % 100);

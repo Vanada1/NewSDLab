@@ -53,11 +53,14 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 	}
 	if (RotateElem->Parent) 
 	{
-		//TODO: Скобочки
 		if (RotateElem == RotateElem->Parent->Right)
+		{
 			RotateElem->Parent->Right = temp;
+		}
 		else
+		{
 			RotateElem->Parent->Left = temp;
+		}
 	}
 	else {
 		Root = temp;
@@ -71,19 +74,16 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 
 void RBTree::InsertFixup(RBTreeNode* node)
 {
-	//TODO: ?
-	// check red-black properties
 	while (node != Root && node->Parent->Color == RED)
 	{
 		if (node->Parent == node->Parent->Parent->Left)
 		{
-			//TODO: Naming
-			RBTreeNode* temp = node->Parent->Parent->Right;
+			RBTreeNode* uncle = node->Parent->Parent->Right;
 			// if uncle is RED
-			if (temp->Color == RED)
+			if (uncle->Color == RED)
 			{
 				node->Parent->Color = BLACK;
-				temp->Color = BLACK;
+				uncle->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				node = node->Parent->Parent;
 			}
@@ -103,14 +103,13 @@ void RBTree::InsertFixup(RBTreeNode* node)
 		}
 		else
 		{
-			//TODO: Naming
 			// mirror image of above code 
-			RBTreeNode* temp = node->Parent->Parent->Left;
+			RBTreeNode* uncle = node->Parent->Parent->Left;
 			// if uncle is RED
-			if (temp->Color == RED)
+			if (uncle->Color == RED)
 			{
 				node->Parent->Color = BLACK;
-				temp->Color = BLACK;
+				uncle->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				node = node->Parent->Parent;
 			}
