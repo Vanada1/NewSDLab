@@ -1,25 +1,24 @@
 #include <iostream>
-#include "Realisation.h"
 #include <ctime>
+#include "InputOutput.h"
+#include "Realisation.h"
 
 using namespace std;
 
 int main()
 {
-	//TODO: nullptr
-	srand(time(NULL));
+	srand(time(nullptr));
 
 	int index = 0;
 	int number = 0;
 	int control = 0;
 	bool ending = true;
 	//TODO:rsdn
-	DynamicArray arr;
+	DynamicArray* arr = new DynamicArray;
 	CreatArray(arr);
 
 	while (ending)
 	{
-		system("pause");
 		system("cls");
 		OutputArray(arr);
 		cout << "What do you want to do with the array?\n";
@@ -31,19 +30,40 @@ int main()
 		case 1:
 			cout << "Which element you want to delete\t";
 			index = Write();
-			DeletElement(arr, index);
+			if (RemoveElement(arr, index))
+			{
+				cout << "Done\n";
+			}
+			else
+			{
+				cout << "Error\n";
+			}
 			break;
 
 		case 2:
 			cout << "Enter the number\n";
 			number = Write();
-			AddElement(arr, number, 0);
+			if (AddElement(arr, number, 0))
+			{
+				cout << "Done\n";
+			}
+			else
+			{
+				cout << "Error\n";
+			}
 			break;
 
 		case 3:
 			cout << "Enter the number\n";
 			number = Write();
-			AddElement(arr, number, arr.lenght);
+			if (AddElement(arr, number, arr->Lenght))
+			{
+				cout << "Done\n";
+			}
+			else
+			{
+			cout << "Error\n";
+			}
 			break;
 
 		case 4:
@@ -51,10 +71,17 @@ int main()
 			index = Write();
 			cout << "Enter the number\n";
 			number = Write();
-			AddElement(arr, number, index + 1);
+			if (AddElement(arr, number, index + 1))
+			{
+				cout << "Done\n";
+			}
+			else
+			{
+				cout << "Error\n";
+			}
 			break;
 		case 5:
-			Sort(arr);
+			SortArray(arr);
 			break;
 		case 6:
 			cout << "What number are you looking for?\n";
@@ -97,8 +124,10 @@ int main()
 			cout << "Strange command\n";
 			break;
 		}
+		system("pause");
 	}
-	delete[] arr.array;
+	delete[] arr->Array;
+	delete arr;
 	cout << endl << "Work is done" << endl;
 	cout << endl;
 	system("pause");

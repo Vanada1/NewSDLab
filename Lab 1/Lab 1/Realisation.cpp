@@ -1,113 +1,98 @@
 #include <iostream>
 #include "Realisation.h"
-#include<list>
-#include<cmath>
-#include <fstream>
-#include <string>
 
 using namespace std;
 //TODO:rsdn
 int const CAP = 4;
 
-void AddElement(DynamicArray& arr, int number, int index)
+bool AddElement(DynamicArray* arr, int number, int index)
 {
-	if (arr.lenght + 1 > arr.capacity)
+	if (arr->Lenght + 1 > arr->Capacity)
 	{
 		Resize(arr);
 	}
 
-	arr.lenght++;
+	arr->Lenght++;
 
-	if (index >= arr.lenght)
+	if (index >= arr->Lenght)
 	{
-		//TODO: Ответственности
-		cout << "error" << endl;
-		arr.lenght--;
-		return;
+		arr->Lenght--;
+		return false;
 	}
 
-	for (int i = index; i < arr.lenght; i++)
+	for (int i = index; i < arr->Lenght; i++)
 	{
 		//TODO:rsdn
 		int temp;
-		temp = arr.array[i];
-		arr.array[i] = number;
+		temp = arr->Array[i];
+		arr->Array[i] = number;
 		number = temp;
 	}
+	return true;
 }
 
 //TODO: return value
-void CreatArray(DynamicArray& arr)
+void CreatArray(DynamicArray* arr)
 {
-	arr.capacity = CAP;
-	arr.lenght = 0;
-	arr.array = new int[arr.capacity];
+	arr->Capacity = CAP;
+	arr->Lenght = 0;
+	arr->Array = new int[arr->Capacity];
 	//TODO:rsdn
-	for (int i = 0; i < arr.capacity;) {
-		arr.array[i] = rand() % 100;
-		arr.lenght++;
+	for (int i = 0; i < arr->Capacity;) {
+		arr->Array[i] = rand() % 100;
+		arr->Lenght++;
 		i++;
 	}
 }
 
-void Resize(DynamicArray& arr)
+void Resize(DynamicArray* arr)
 {
-	int* temp = new int[arr.capacity];
-	for (int i = 0; i < arr.lenght;)
+	int* temp = new int[arr->Capacity];
+	for (int i = 0; i < arr->Lenght;)
 	{
-		temp[i] = arr.array[i];
+		temp[i] = arr->Array[i];
 		i++;
 	}
-	delete[] arr.array;
-	arr.capacity += CAP;
-	//TODO: Почему просто не переставить указатель?
-	arr.array = new int[arr.capacity];
-	for (int i = 0; i < arr.lenght;)
-	{
-		arr.array[i] = temp[i];
-		i++;
-	}
+	delete[] arr->Array;
+	arr->Capacity += CAP;
+	arr->Array = temp;
 	delete[] temp;
 }
 
-//TODO: Naming
-void DeletElement(DynamicArray& arr, int index)
+bool RemoveElement(DynamicArray* arr, int index)
 {
-	if (index >= arr.lenght)
+	if (index >= arr->Lenght)
 	{
-		//TODO: Ответственности
-		cout << "error" << endl;
-
-		return;
+		return false;
 	}
-	for (int i = index; i < arr.lenght; i++)
+	for (int i = index; i < arr->Lenght; i++)
 	{
-		arr.array[i] = arr.array[i + 1];
+		arr->Array[i] = arr->Array[i + 1];
 	}
-	arr.lenght--;
+	arr->Lenght--;
+	return true;
 }
 
-void Sort(DynamicArray& arr)
+void SortArray(DynamicArray* arr)
 {
 	int counter = 0;
 	//TODO:rsdn
-	for (int i = 1; i < arr.lenght; i++) {
-		for (int j = i; j > 0 && arr.array[j - 1] > arr.array[j]; j--)
+	for (int i = 1; i < arr->Lenght; i++) {
+		for (int j = i; j > 0 && arr->Array[j - 1] > arr->Array[j]; j--)
 		{
 			counter++;
-			int tmp = arr.array[j - 1];
-			arr.array[j - 1] = arr.array[j];
-			arr.array[j] = tmp;
+			int tmp = arr->Array[j - 1];
+			arr->Array[j - 1] = arr->Array[j];
+			arr->Array[j] = tmp;
 		}
 	}
-	cout << counter << endl;
 }
 
-bool LineSearch(DynamicArray& arr, int requiredKey, int& index)
+bool LineSearch(DynamicArray* arr, int requiredKey, int& index)
 {
-	for (int i = 0; i < arr.lenght; i++)
+	for (int i = 0; i < arr->Lenght; i++)
 	{
-		if (arr.array[i] == requiredKey)
+		if (arr->Array[i] == requiredKey)
 		{
 			index = i;
 			return true;
@@ -116,19 +101,19 @@ bool LineSearch(DynamicArray& arr, int requiredKey, int& index)
 	return false;
 }
 
-bool BinarySearch(DynamicArray& arr, int number, int& index)
+bool BinarySearch(DynamicArray* arr, int number, int& index)
 {
 	int midd = 0;
-	int right = arr.lenght;
+	int right = arr->Lenght;
 	int left = 0;
 	while (true)
 	{
 		midd = (left + right) / 2;
-		if (number < arr.array[midd])
+		if (number < arr->Array[midd])
 		{
 			right = midd - 1;
 		}
-		else if (number > arr.array[midd])
+		else if (number > arr->Array[midd])
 		{
 			left = midd + 1;
 		}
@@ -144,68 +129,14 @@ bool BinarySearch(DynamicArray& arr, int number, int& index)
 	}
 }
 
-bool CheckSort(DynamicArray& arr)
+bool CheckSort(DynamicArray* arr)
 {
-	for (int i = 0; i < arr.lenght - 1; i++)
+	for (int i = 0; i < arr->Lenght - 1; i++)
 	{
-		if (arr.array[i] > arr.array[i + 1])
+		if (arr->Array[i] > arr->Array[i + 1])
 		{
 			return false;
 		}
 	}
 	return true;
-}
-
-//Input and Output
-
-int Write()
-{
-	//TODO: Naming
-	bool error;
-	int num;
-	do
-	{
-		error = false;
-		cin >> num;
-		if (cin.fail())
-		{
-			cout << "Wrong" << endl;
-			error = true;
-			cin.clear();
-			cin.ignore(80, '\n');
-
-		}
-	} while (error);
-	return num;
-}
-
-void OutputArray(DynamicArray& arr)
-{
-	//TODO: Ответственности
-	for (int i = 0; i < arr.lenght; i++)
-	{
-		cout << arr.array[i] << "\t";
-
-	}
-	cout << endl;
-}
-
-void TextOutput()
-{
-	//TODO: Ответственности
-	string line;
-
-	ifstream fil("menu.txt");
-	if (fil.is_open())
-	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
-	}
-	else
-	{
-		cout << "Error: cannot open the file";
-	}
-	fil.close();
 }
