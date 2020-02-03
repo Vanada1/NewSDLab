@@ -3,9 +3,12 @@
 
 void TreapMenu()
 {
+	//TODO: nullptr
 	srand(time(NULL));
+	//TODO: RSDN
 	Treap* Tree = new Treap();
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
 	int priority = 0;
@@ -24,6 +27,7 @@ void TreapMenu()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter the number\n";
 			number = WriteInt();

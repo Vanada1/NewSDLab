@@ -3,8 +3,10 @@
 void BinaryTreeMenu()
 {
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
+	//TODO: RSDN
 	BinaryTree* Tree = new BinaryTree();
 	List* Temp;
 	cout << "Enter the count of elemetns\t";
@@ -22,6 +24,7 @@ void BinaryTreeMenu()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter the number\n";
 			number = WriteInt();

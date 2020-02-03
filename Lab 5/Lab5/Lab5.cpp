@@ -8,6 +8,7 @@ using namespace std;
 int main()
 {
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 
 	while (ending)
@@ -17,6 +18,7 @@ int main()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			BinaryTreeMenu();
 			break;

@@ -2,6 +2,7 @@
 
 void Treap::CreateTree(int quantity)
 {
+	//TODO: nullptr
 	srand(time(NULL));
 	for (int i = 0; i < quantity; i++)
 	{
@@ -79,6 +80,7 @@ TreapNode* Treap::Merge(TreapNode* left, TreapNode* right)
 
 TreapNode* Treap::AddElementUA(int key, int priority)
 {
+	//TODO: RSDN
 	TreapNode* left = nullptr, *right = nullptr;
 	Split(Root, key, left, right);
 	TreapNode* inserted = new TreapNode();
@@ -127,6 +129,7 @@ bool Treap::AddElementOA(int key, int priroity)
 
 TreapNode* Treap::RemoveElementUA(int key)
 {
+	//TODO: RSDN
 	TreapNode* left, *deleteElem, *right;
 	Split(Root, key - 1, left, right);
 	Split(right, key, deleteElem, right);
