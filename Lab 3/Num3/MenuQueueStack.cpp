@@ -7,8 +7,7 @@ using namespace std;
 
 void MenuQueueStack()
 {
-	//TODO: Naming
-	QueueTwoStack* stack = new QueueTwoStack();
+	QueueTwoStack* queue = new QueueTwoStack();
 	bool IsNotDelete = false;
 	bool ending = true;
 	//TODO: Почему здесь?
@@ -21,10 +20,10 @@ void MenuQueueStack()
 		system("cls");
 		if (!IsNotDelete)
 		{
-			stack->CreateQueue();
+			queue->CreateQueue();
 			IsNotDelete = true;
 		}
-		ShowStackQueue(stack->Main);
+		ShowStackQueue(queue->Main);
 		TextOutput("QueueStak_menu.txt");
 		control = Write();
 		switch (control)
@@ -33,10 +32,10 @@ void MenuQueueStack()
 		case 1:
 			cout << "Enter the element\n";
 			number = Write();
-			stack->Enqueue(number);
+			queue->Enqueue(number);
 			break;
 		case 2:
-			number = stack->Dequeue();
+			number = queue->Dequeue();
 			if (number == -1)
 			{
 				cout << "Nothing return\n";
@@ -47,7 +46,7 @@ void MenuQueueStack()
 			}
 			break;
 		case 3:
-			stack->Delete();
+			queue->Delete();
 			IsNotDelete = false;
 			break;
 		case 9:
@@ -58,8 +57,6 @@ void MenuQueueStack()
 			break;
 		}
 	}
-	//TODO: Вынести в метод?
-	stack->Main->ClearStack();
-	stack->Peripheral->ClearStack();
-	delete stack;
+	queue->ClearQueue();
+	delete queue;
 }

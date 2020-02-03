@@ -1,8 +1,7 @@
 #include "RingBuffer.h"
 #include"InputOutput.h"
 
-//TODO: Naming
-#define BUF 5
+#define BUFFER 5
 
 bool IsNothing(int front, int tail)
 {
@@ -17,11 +16,11 @@ void RingBuffer::Resize()
 		int* temp = new int[Ring.Size];
 		for (int i = 0; i < Ring.Size; i++)
 		{
-			temp[i] = Ring.Array[(Ring.Front + i) % Ring.Compasity];
+			temp[i] = Ring.Array[(Ring.Front + i) % Ring.Capacity];
 		}
 		delete[] Ring.Array;
-		Ring.Compasity += BUF;
-		Ring.Array = new int[Ring.Compasity];
+		Ring.Capacity += BUFFER;
+		Ring.Array = new int[Ring.Capacity];
 		for (int i = 0; i < Ring.Size; i++)
 		{
 			Ring.Array[i] = temp[i];
@@ -38,8 +37,8 @@ void RingBuffer::Resize()
 
 void RingBuffer::CreateBuffer()
 {
-	Ring.Compasity = BUF;
-	Ring.Array = new int[Ring.Compasity];
+	Ring.Capacity = BUFFER;
+	Ring.Array = new int[Ring.Capacity];
 	Ring.Front = -1;
 	Ring.Tail = -1;
 	Ring.Size = 0;
@@ -52,7 +51,7 @@ void RingBuffer::AddElement(int number)
 	{
 		CreateBuffer();
 	}
-	if ((Ring.Tail + 1) % Ring.Compasity == Ring.Front)
+	if ((Ring.Tail + 1) % Ring.Capacity == Ring.Front)
 	{
 		OutputNumberRing(GetElement());
 	}
@@ -60,7 +59,7 @@ void RingBuffer::AddElement(int number)
 	{
 		Ring.Front = 0;
 	}
-	Ring.Tail = (Ring.Tail + 1) % Ring.Compasity;
+	Ring.Tail = (Ring.Tail + 1) % Ring.Capacity;
 	Ring.Array[Ring.Tail] = number;
 	Ring.Size++;
 }
@@ -80,7 +79,7 @@ int RingBuffer::GetElement()
 	}
 	else
 	{
-		Ring.Front = (Ring.Front + 1) % Ring.Compasity;
+		Ring.Front = (Ring.Front + 1) % Ring.Capacity;
 	}
 	Ring.Size--;
 	return temp;

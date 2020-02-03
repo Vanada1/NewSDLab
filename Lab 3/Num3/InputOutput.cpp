@@ -52,29 +52,20 @@ void ShowRingBuf(RingBuf& ring)
 	else
 	{
 		cout << "Ring\n";
-		if (ring.Front <= ring.Tail)
+		if (ring.Front > ring.Tail)
 		{
-			//TODO: Дубль
-			for (int i = ring.Front; i <= ring.Tail; i++)
+			for (int i = ring.Front; i < ring.Capacity; i++)
 			{
 				cout << ring.Array[i] << "\t";
 			}
 		}
-		else
+		for (int i = ring.Front; i <= ring.Tail; i++)
 		{
-			//TODO: Дубль
-			for (int i = ring.Front; i < ring.Compasity; i++)
-			{
-				cout << ring.Array[i] << "\t";
-			}
-			for (int i = 0; i <= ring.Tail; i++)
-			{
-				cout << ring.Array[i] << "\t";
-			}
+			cout << ring.Array[i] << "\t";
 		}
 		cout << endl;
-		FreePlace(ring.Compasity, ring.Size);
-		OccupiedPlace(ring.Size);
+		FreeSpace(ring.Capacity, ring.Size);
+		OccupiedSpace(ring.Size);
 	}
 }
 
@@ -83,13 +74,12 @@ void Error()
 	cout << "Error\n";
 }
 
-//TODO: Naming
-void FreePlace(int compasity, int size)
+void FreeSpace(int compasity, int size)
 {
 	cout << "Free place " << compasity - size << endl;
 }
 
-void OccupiedPlace(int size)
+void OccupiedSpace(int size)
 {
 	cout << "Occupied place " << size << endl;
 }

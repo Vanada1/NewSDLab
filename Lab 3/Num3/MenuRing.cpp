@@ -7,9 +7,8 @@ using namespace std;
 
 void MenuRing()
 {
-	//TODO: Нужна динамика, а не статика
-	RingBuffer struc;
-	struc.CreateBuffer();
+	RingBuffer* struc = new RingBuffer();
+	struc->CreateBuffer();
 	bool ending = true;
 	//TODO: Почему здесь?
 	int control = 0;
@@ -19,7 +18,7 @@ void MenuRing()
 	{
 		system("pause");
 		system("cls");
-		ShowRingBuf(struc.Ring);
+		ShowRingBuf(struc->Ring);
 		TextOutput("QueueRingBuff_menu.txt");
 		control = Write();
 		switch (control)
@@ -28,19 +27,19 @@ void MenuRing()
 		case 1:
 			cout << "Enter the element\n";
 			number = Write();
-			struc.AddElement(number);
+			struc->AddElement(number);
 			cout << "Added\n";
 			break;
 		case 2:
-			number = struc.GetElement();
+			number = struc->GetElement();
 			OutputNumberRing(number);
 			break;
 		case 3: 
-			struc.DeleteRingBuf();
+			struc->DeleteRingBuf();
 			cout << "Ring deleted\n";
 			break;
 		case 4:
-			struc.Resize();
+			struc->Resize();
 			break;
 		case 9:
 			ending = false;
@@ -50,5 +49,5 @@ void MenuRing()
 			break;
 		}
 	}
-	struc.DeleteRingBuf();
+	struc->DeleteRingBuf();
 }

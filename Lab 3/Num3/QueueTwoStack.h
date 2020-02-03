@@ -7,6 +7,7 @@ struct QueueTwoStack
 {
 	Stack* Main;
 	Stack* Peripheral;
+	void ClearQueue();
 	void CreateQueue();
 	void Enqueue(int);
 	int Dequeue();
