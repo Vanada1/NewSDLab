@@ -1,35 +1,33 @@
-#include "Function.h"
-#include <ctime>
-//TODO: Именование файла!
+#include "ListFunc.h"
+#include "InputOutput.h"
+#include <iostream>
 using namespace std;
 
 //TODO:rsdn
-void AddElement(List* lst, int quantity)
+long double AddElement(List* lst, int quantity)
 {
-	//TODO: Дублируются расчёты времени, правильнее вынести их в директивы препроцессора
+	long double elapsed_secs = 0;
 	clock_t begin = clock();
 	for (int i = 0; i < quantity; i++)
 	{
-		InsertInList(lst, rand() % 100, lst->Size - 1);
+		InsertInList(lst, rand() % 100, lst->Size - 1, elapsed_secs);
 	}
 	clock_t end = clock();
 	//TODO:rsdn
-	long double elapsed_secs = long double(end - begin) / CLOCKS_PER_SEC;
-	OutputTime(elapsed_secs, "add elements ");
+	elapsed_secs = FuncCounting(begin, end);
+	return elapsed_secs;
 }
 //TODO:rsdn
-void DeleteElement(List* lst, int index)
+bool DeleteElement(List* lst, int index, long double& elapsed_secs)
 {
-	//clock_t begin = clock();
+	clock_t begin = clock();
 	if (index < 0)
 	{
-		Error();
-		return;
+		return false;
 	}
 	else if (index >= lst->Size)
 	{
-		Error();
-		return;
+		return false;
 	}
 	Node* temp = lst->Head;
 	for (int i = 0; i < index; i++)
@@ -60,25 +58,21 @@ void DeleteElement(List* lst, int index)
 	delete temp;
 	lst->Size--;
 
-	//clock_t end = clock();
-	//long double elapsed_secs = long double(end - begin) / CLOCKS_PER_SEC;
-	//OutputTime(elapsed_secs, "delete element ");
+	clock_t end = clock();
+	elapsed_secs = FuncCounting(begin, end);
+	return true;
 }
 
-void InsertInList(List* lst, int number,int index)
+bool InsertInList(List* lst, int number,int index, long double& elapsed_secs)
 {
-	//clock_t begin = clock();
+	clock_t begin = clock();
 	if (index < 0)
 	{
-		//TODO: Вынести в отдельный файл.
-		Error();
-		return;
+		return false;
 	}
 	else if (index > lst->Size)
 	{
-		//TODO: Ответственности
-		Error();
-		return;
+		return false;
 	}
 	
 	Node* inserted = new Node;
@@ -121,9 +115,9 @@ void InsertInList(List* lst, int number,int index)
 		inserted->Next = current;
 	}
 	lst->Size++;
-	//clock_t end = clock();
-	//long double elapsed_secs = long double(end - begin) / CLOCKS_PER_SEC;
-	//OutputTime(elapsed_secs, "add elements ");
+	clock_t end = clock();
+	elapsed_secs = FuncCounting(begin, end);
+	return true;
 }
 
 void Sort(List* lst)
@@ -164,7 +158,7 @@ void Sort(List* lst)
 	}
 }
 
-void LineSearch(List* lst, int number)
+bool LineSearch(List* lst, int number, int& index)
 {
 	Node* temp = lst->Head;
 	int counter = 0;
@@ -172,12 +166,12 @@ void LineSearch(List* lst, int number)
 	{
 		if (temp->Data == number)
 		{
-			FoundElement(i, number);
-			counter++;
+			index = i;
+			return true;
 		}
 		temp = temp->Next;
 	}
-	ResultOfSearch(counter, number);
+	return false;
 }
 
 void DeleteList (List* lst)
@@ -189,4 +183,9 @@ void DeleteList (List* lst)
 		delete deleteElem;
 		deleteElem = temp;
 	}
+}
+
+long double FuncCounting(clock_t begin, clock_t end)
+{
+	return long double((end - begin) / CLOCKS_PER_SEC);
 }

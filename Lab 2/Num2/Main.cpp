@@ -1,13 +1,13 @@
 #include <iostream>
-#include "Function.h"
+#include "ListFunc.h"
+#include "InputOutput.h"
 #include <ctime>
 
 using namespace std;
 
 int main()
 {
-	//TODO: nullptr
-	srand(time(NULL));
+	srand(time(nullptr));
 
 	bool ending = true;
 	//TODO:rsdn
@@ -17,19 +17,20 @@ int main()
 	int control = 0;
 	int number = 0;
 	int index = 0;
+	long double elapsed_secs = 0;
 
 	cout << "Enter the number of elements" << endl;
 	quantity = Write();
 	cout << endl;
 
-	//clock_t begin = clock();
+	clock_t begin = clock();
 	for (int i = 0; i < quantity; i++)
 	{
-		InsertInList(lst, rand() % 100, lst->Size);
+		InsertInList(lst, rand() % 100, lst->Size, elapsed_secs);
 	}
-	//clock_t end = clock();
-	//long double elapsed_secs = long double(end - begin) / CLOCKS_PER_SEC;
-	//OutputTime(elapsed_secs, "create of list ");
+	clock_t end = clock();
+	elapsed_secs = FuncCounting(begin, end);
+	OutputTime(elapsed_secs, "create of list ");
 
 	while (ending)
 	{
@@ -46,31 +47,71 @@ int main()
 		case 1:
 			cout << "Enter index\n";
 			index = Write();
-			DeleteElement(lst, index);
+			if (DeleteElement(lst, index, elapsed_secs))
+			{
+				Done();
+				OutputTime(elapsed_secs, "delete element ");
+			}
+			else
+			{
+				Error();
+			}
 			break;
 		case 2:
 			cout << "Enter the number\n";
 			number = Write();
-			InsertInList(lst, number, 0);
+			if(InsertInList(lst, number, 0, elapsed_secs))
+			{
+				Done();
+				OutputTime(elapsed_secs, "add element ");
+			}
+			else
+			{
+				Error();
+			}
 			break;
 		case 3:
 			cout << "Enter the number\n";
 			number = Write();
-			InsertInList(lst, number, lst->Size);
+			if (InsertInList(lst, number, lst->Size, elapsed_secs))
+			{
+				Done();
+				OutputTime(elapsed_secs, "add element ");
+			}
+			else
+			{
+				Error();
+			}
 			break;
 		case 4:
 			cout << "Enter the number\n";
 			number = Write();
 			cout << "Enter index\n";
 			index = Write();
-			InsertInList(lst, number, index + 1);
+			if (InsertInList(lst, number, index + 1, elapsed_secs))
+			{
+				Done();
+				OutputTime(elapsed_secs, "add element ");
+			}
+			else
+			{
+				Error();
+			}
 			break;
 		case 5:
 			cout << "Enter the number\n";
 			number = Write();
 			cout << "Enter index\n";
 			index = Write();
-			InsertInList(lst, number, index);
+			if (InsertInList(lst, number, index, elapsed_secs))
+			{
+				Done();
+				OutputTime(elapsed_secs, "add element ");
+			}
+			else
+			{
+				Error();
+			}
 			break;
 		case 6:
 			Sort(lst);
@@ -78,7 +119,15 @@ int main()
 		case 7:
 			cout << "What number do you want to find?\n";
 			number = Write();
-			LineSearch(lst, number);
+			index = NULL;
+			if (LineSearch(lst, number, index))\
+			{
+				cout << "The numder " << number << " in " << index << " cell\n";
+			}
+			else
+			{
+				cout << "Not found\n";
+			}
 			break;
 		case 8:
 			OutputListBack(lst);
@@ -89,7 +138,7 @@ int main()
 		case 10:
 			cout << "Insert quantity \n";
 			cin >> quantity;
-			AddElement(lst, quantity);
+			OutputTime(AddElement(lst, quantity), "add elements ");
 		default:
 			break;
 		}

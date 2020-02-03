@@ -1,4 +1,4 @@
-#include "Function.h"
+#include "InputOutput.h"
 #include <string>
 #include <fstream>
 #include <iomanip>
@@ -28,8 +28,7 @@ int Write()
 void OutputList(List* lst)
 {
 	Node* temp = lst->Head;
-	//TODO: nullptr
-	while (temp != NULL)
+	while (temp != nullptr)
 	{
 		cout << temp->Data << '\t';
 		temp = temp->Next;
@@ -41,8 +40,7 @@ void OutputList(List* lst)
 void OutputListBack(List* lst)
 {
 	Node* temp = lst->Tail;
-	//TODO: nullptr
-	while (temp != NULL)
+	while (temp != nullptr)
 	{
 		cout << temp->Data << '\t';
 		temp = temp->Perv;
@@ -72,25 +70,12 @@ void TextOutput()
 
 void Error()
 {
-	cout << "Error: Too strange index\n";
+	cout << "Error\n";
 }
 
-void FoundElement(int index, int number)
+void Done()
 {
-	cout << "The numder " << number << " in " << index << " cell\n";
-}
-
-void ResultOfSearch(int counter, int number)
-{
-	if (counter == 0)
-	{
-		cout << "The number " << number << " was not found\n";
-	}
-	else
-	{
-		cout << "The number " << number << " was found "
-			<< counter << " times\n";
-	}
+	cout << "Done\n";
 }
 
 void OutputTime(long double time, string word)
