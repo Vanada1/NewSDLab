@@ -3,11 +3,14 @@
 void ALVTreeMenu()
 {
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
+	//TODO: RSDN
 	ALVTree* Tree = new ALVTree();
 	cout << "Enter the count of elemetns\t";
 	number = WriteInt();
+	//TODO: nullptr
 	srand(time(NULL));
 	for (int i = 0; i < number; i++)
 	{
@@ -25,6 +28,7 @@ void ALVTreeMenu()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter the number\n";
 			number = WriteInt();

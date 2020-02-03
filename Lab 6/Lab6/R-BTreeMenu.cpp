@@ -9,10 +9,13 @@ using namespace std;
 
 void RBTreeMenu()
 {
+	//TODO: nullptr
 	srand(time(NULL));
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
+	//TODO: RSDN
 	RBTree* Tree = new RBTree();
 	RBTreeNode* searchedElem = nullptr;
 	cout << "How many elements to create ";
@@ -35,6 +38,7 @@ void RBTreeMenu()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter the number\n";
 			number = WriteInt();

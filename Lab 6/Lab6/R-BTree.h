@@ -7,6 +7,7 @@ struct RBTree
 	RBTreeNode* Root;
 	RBTreeNode* Nil;
 	bool Insert(int);
+	//TODO: Почему не инкапсулированы повороты
 	bool DeleteElem(RBTreeNode*);
 	bool SearchElem(RBTreeNode*&, int);
 	void RotateLeft(RBTreeNode*);

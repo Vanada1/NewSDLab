@@ -53,6 +53,7 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 	}
 	if (RotateElem->Parent) 
 	{
+		//TODO: Скобочки
 		if (RotateElem == RotateElem->Parent->Right)
 			RotateElem->Parent->Right = temp;
 		else
@@ -70,11 +71,13 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 
 void RBTree::InsertFixup(RBTreeNode* node)
 {
+	//TODO: ?
 	// check red-black properties
 	while (node != Root && node->Parent->Color == RED)
 	{
 		if (node->Parent == node->Parent->Parent->Left)
 		{
+			//TODO: Naming
 			RBTreeNode* temp = node->Parent->Parent->Right;
 			// if uncle is RED
 			if (temp->Color == RED)
@@ -100,6 +103,7 @@ void RBTree::InsertFixup(RBTreeNode* node)
 		}
 		else
 		{
+			//TODO: Naming
 			// mirror image of above code 
 			RBTreeNode* temp = node->Parent->Parent->Left;
 			// if uncle is RED
@@ -130,6 +134,7 @@ void RBTree::InsertFixup(RBTreeNode* node)
 
 bool RBTree::Insert(int data)
 {
+	//TODO: RSDN
 	RBTreeNode* current, * parent, * insertedElem;
 
 	current = Root;
@@ -308,6 +313,7 @@ bool RBTree::SearchElem(RBTreeNode*& elem, int data)
 			elem = current;
 			return true;
 		}
+		//TODO: Formatting
 		current = (data < current->Data) ? 
 			current->Left : current->Right;
 	}
