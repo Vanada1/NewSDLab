@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+	//TODO: Почему здесь?
 	int control = 0;
 	bool ending = true;
 	while (ending)
@@ -17,6 +18,7 @@ int main()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			MenuDictionary();
 			break;

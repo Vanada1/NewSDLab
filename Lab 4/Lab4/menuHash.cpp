@@ -1,3 +1,4 @@
+//TODO: Название файла
 #include "Hash.h"
 #include "InputOutput.h"
 #include "TempArray.h"
@@ -9,13 +10,17 @@ using namespace std;
 
 int MenuHash()
 {
+	//TODO: nullptr
 	srand(time(NULL));
 	Hash* hash = new Hash;
 	TempArray* temp;
+	//TODO: RSDN
 	string name, book;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number;
 	bool ending = true;
+	//TODO: ?
 	int size;
 	cout << "Enter the size for table ";
 	cout << endl;
@@ -30,6 +35,7 @@ int MenuHash()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter Author name ";
 			name = WriteString();
@@ -80,8 +86,10 @@ int MenuHash()
 			cout << endl;
 			for (int i = 0; i < number; i++)
 			{
+				//TODO: RSDN
 				if (!hash->Insert(to_string(rand() % 100), to_string(rand() % 100)))
 				{
+					//TODO: ?
 					Error;
 					i--;
 				}

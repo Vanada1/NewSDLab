@@ -1,3 +1,4 @@
+//TODO: Название файла
 #include "Hash.h"
 #include "TempArray.h"
 

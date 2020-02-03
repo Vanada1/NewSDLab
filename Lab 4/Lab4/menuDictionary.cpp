@@ -1,3 +1,4 @@
+//TODO: Название файла
 #include"Dictionary.h"
 #include "InputOutput.h"
 #include "TempArray.h"
@@ -9,10 +10,13 @@ using namespace std;
 
 int MenuDictionary()
 {
+	//TODO: nullptr
 	srand(time(NULL));
 	Dictionary* dictionary = new Dictionary;
 	TempArray* temp;
+	//TODO: RSDN
 	string name, book;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number;
 	bool ending = true;
@@ -30,6 +34,7 @@ int MenuDictionary()
 		control = WriteInt();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter Author name ";
 			name = WriteString();
@@ -58,6 +63,7 @@ int MenuDictionary()
 			}
 			else
 			{
+				//TODO: ?
 				Error;
 			}
 			break;
@@ -84,8 +90,10 @@ int MenuDictionary()
 			cout << endl;
 			for (int i = 0; i < number; i++)
 			{
+				//TODO: RSDN
 				if (!dictionary->Insert(to_string(rand() % 100), to_string(rand() % 100)))
 				{
+					//TODO: ?
 					Error;
 					i--;
 				}

@@ -4,7 +4,7 @@
 #include"InputOutput.h"
 
 using namespace std;
-
+//TODO: Дубль
 string WriteString()
 {
 	bool error;
@@ -23,7 +23,7 @@ string WriteString()
 	} while (error);
 	return str;
 }
-
+//TODO: Дубль
 int  WriteInt()
 {
 	bool error;
