@@ -1,5 +1,6 @@
 #include "QueueTwoStack.h"
 #include "InputOutput.h"
+
 void QueueTwoStack::Enqueue(int number)
 {
 	Main->Push(number);

@@ -1,6 +1,7 @@
 #include "RingBuffer.h"
 #include"InputOutput.h"
 
+//TODO: Naming
 #define BUF 5
 
 bool IsNothing(int front, int tail)

@@ -7,9 +7,11 @@ using namespace std;
 
 void MenuRing()
 {
+	//TODO: Нужна динамика, а не статика
 	RingBuffer struc;
 	struc.CreateBuffer();
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
 
@@ -22,6 +24,7 @@ void MenuRing()
 		control = Write();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter the element\n";
 			number = Write();

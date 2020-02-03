@@ -7,9 +7,11 @@ using namespace std;
 
 void MenuQueueStack()
 {
+	//TODO: Naming
 	QueueTwoStack* stack = new QueueTwoStack();
 	bool IsNotDelete = false;
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
 
@@ -27,6 +29,7 @@ void MenuQueueStack()
 		control = Write();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter the element\n";
 			number = Write();
@@ -55,6 +58,7 @@ void MenuQueueStack()
 			break;
 		}
 	}
+	//TODO: Вынести в метод?
 	stack->Main->ClearStack();
 	stack->Peripheral->ClearStack();
 	delete stack;

@@ -7,8 +7,10 @@ using namespace std;
 void StackMenu()
 {
 	Stack* stack = new Stack();
+	//TODO: RSDN
 	bool IsNotDelete = false;
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
 
@@ -21,6 +23,7 @@ void StackMenu()
 		control = Write();
 		switch (control)
 		{
+			//TODO: RSDN
 		case 1:
 			cout << "Enter the element\n";
 			number = Write();

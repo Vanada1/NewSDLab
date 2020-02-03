@@ -54,6 +54,7 @@ void ShowRingBuf(RingBuf& ring)
 		cout << "Ring\n";
 		if (ring.Front <= ring.Tail)
 		{
+			//TODO: Дубль
 			for (int i = ring.Front; i <= ring.Tail; i++)
 			{
 				cout << ring.Array[i] << "\t";
@@ -61,6 +62,7 @@ void ShowRingBuf(RingBuf& ring)
 		}
 		else
 		{
+			//TODO: Дубль
 			for (int i = ring.Front; i < ring.Compasity; i++)
 			{
 				cout << ring.Array[i] << "\t";
@@ -81,6 +83,7 @@ void Error()
 	cout << "Error\n";
 }
 
+//TODO: Naming
 void FreePlace(int compasity, int size)
 {
 	cout << "Free place " << compasity - size << endl;

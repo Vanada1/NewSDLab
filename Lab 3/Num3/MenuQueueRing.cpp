@@ -10,6 +10,7 @@ void MenuQueueRing()
 	QueueRing struc;
 	struc.CreateQueue();
 	bool ending = true;
+	//TODO: Почему здесь?
 	int control = 0;
 	int number = 0;
 
