@@ -3,8 +3,7 @@
 
 void TreapMenu()
 {
-	//TODO: nullptr
-	srand(time(NULL));
+	srand(time(nullptr));
 	//TODO: RSDN
 	Treap* Tree = new Treap();
 	bool ending = true;
@@ -46,22 +45,22 @@ void TreapMenu()
 		case 2:
 			cout << "Enter the number\n";
 			number = WriteInt();
-			Tree->Root = Tree->AddElementUA(number, rand() % 100);
+			Tree->Root = Tree->AddUnoptimized(number, rand() % 100);
 			break;
 		case 3:
 			cout << "Enter the number\n";
 			number = WriteInt();
-			Tree->AddElementOA(number, rand() % 100);
+			Tree->AddOptimized(number, rand() % 100);
 			break;
 		case 4:
 			cout << "Enter the number\n";
 			number = WriteInt();
-			Tree->Root = Tree->RemoveElementUA(number);
+			Tree->Root = Tree->RemoveUnoptimized(number);
 			break;
 		case 5:
 			cout << "Enter the number\n";
 			number = WriteInt();
-			Tree->RemoveElementOA(number);
+			Tree->RemoveOptimized(number);
 			break;
 		case 9:
 			ending = false;

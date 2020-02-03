@@ -3,10 +3,10 @@
 void Treap::CreateTree(int quantity)
 {
 	//TODO: nullptr
-	srand(time(NULL));
+	srand(time(nullptr));
 	for (int i = 0; i < quantity; i++)
 	{
-		AddElementOA(rand() % 100, rand() % 100);
+		AddOptimized(rand() % 100, rand() % 100);
 	}
 }
 
@@ -78,7 +78,7 @@ TreapNode* Treap::Merge(TreapNode* left, TreapNode* right)
 	return right;
 }
 
-TreapNode* Treap::AddElementUA(int key, int priority)
+TreapNode* Treap::AddUnoptimized(int key, int priority)
 {
 	//TODO: RSDN
 	TreapNode* left = nullptr, *right = nullptr;
@@ -90,7 +90,7 @@ TreapNode* Treap::AddElementUA(int key, int priority)
 	
 }
 
-bool Treap::AddElementOA(int key, int priroity)
+bool Treap::AddOptimized(int key, int priroity)
 {
 	TreapNode* current = Root;
 	while (current != nullptr && current->Priority > priroity)
@@ -127,7 +127,7 @@ bool Treap::AddElementOA(int key, int priroity)
 	return true;
 }
 
-TreapNode* Treap::RemoveElementUA(int key)
+TreapNode* Treap::RemoveUnoptimized(int key)
 {
 	//TODO: RSDN
 	TreapNode* left, *deleteElem, *right;
@@ -137,7 +137,7 @@ TreapNode* Treap::RemoveElementUA(int key)
 	return Merge(left, right);
 }
 
-bool Treap::RemoveElementOA(int key)
+bool Treap::RemoveOptimized(int key)
 {
 	if (Root == nullptr)
 	{
