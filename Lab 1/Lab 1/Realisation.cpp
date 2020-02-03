@@ -6,7 +6,7 @@
 #include <string>
 
 using namespace std;
-
+//TODO:rsdn
 int const CAP = 4;
 
 void AddElement(DynamicArray& arr, int number, int index)
@@ -20,6 +20,7 @@ void AddElement(DynamicArray& arr, int number, int index)
 
 	if (index >= arr.lenght)
 	{
+		//TODO: Ответственности
 		cout << "error" << endl;
 		arr.lenght--;
 		return;
@@ -27,6 +28,7 @@ void AddElement(DynamicArray& arr, int number, int index)
 
 	for (int i = index; i < arr.lenght; i++)
 	{
+		//TODO:rsdn
 		int temp;
 		temp = arr.array[i];
 		arr.array[i] = number;
@@ -34,12 +36,13 @@ void AddElement(DynamicArray& arr, int number, int index)
 	}
 }
 
+//TODO: return value
 void CreatArray(DynamicArray& arr)
 {
 	arr.capacity = CAP;
 	arr.lenght = 0;
 	arr.array = new int[arr.capacity];
-
+	//TODO:rsdn
 	for (int i = 0; i < arr.capacity;) {
 		arr.array[i] = rand() % 100;
 		arr.lenght++;
@@ -57,6 +60,7 @@ void Resize(DynamicArray& arr)
 	}
 	delete[] arr.array;
 	arr.capacity += CAP;
+	//TODO: Почему просто не переставить указатель?
 	arr.array = new int[arr.capacity];
 	for (int i = 0; i < arr.lenght;)
 	{
@@ -66,10 +70,12 @@ void Resize(DynamicArray& arr)
 	delete[] temp;
 }
 
+//TODO: Naming
 void DeletElement(DynamicArray& arr, int index)
 {
 	if (index >= arr.lenght)
 	{
+		//TODO: Ответственности
 		cout << "error" << endl;
 
 		return;
@@ -84,6 +90,7 @@ void DeletElement(DynamicArray& arr, int index)
 void Sort(DynamicArray& arr)
 {
 	int counter = 0;
+	//TODO:rsdn
 	for (int i = 1; i < arr.lenght; i++) {
 		for (int j = i; j > 0 && arr.array[j - 1] > arr.array[j]; j--)
 		{
@@ -153,6 +160,7 @@ bool CheckSort(DynamicArray& arr)
 
 int Write()
 {
+	//TODO: Naming
 	bool error;
 	int num;
 	do
@@ -173,6 +181,7 @@ int Write()
 
 void OutputArray(DynamicArray& arr)
 {
+	//TODO: Ответственности
 	for (int i = 0; i < arr.lenght; i++)
 	{
 		cout << arr.array[i] << "\t";
@@ -183,6 +192,7 @@ void OutputArray(DynamicArray& arr)
 
 void TextOutput()
 {
+	//TODO: Ответственности
 	string line;
 
 	ifstream fil("menu.txt");

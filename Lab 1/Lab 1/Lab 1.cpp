@@ -6,12 +6,14 @@ using namespace std;
 
 int main()
 {
+	//TODO: nullptr
 	srand(time(NULL));
 
 	int index = 0;
 	int number = 0;
 	int control = 0;
 	bool ending = true;
+	//TODO:rsdn
 	DynamicArray arr;
 	CreatArray(arr);
 
@@ -25,6 +27,7 @@ int main()
 		control = Write();
 		switch (control)
 		{
+			//TODO:rsdn
 		case 1:
 			cout << "Which element you want to delete\t";
 			index = Write();
