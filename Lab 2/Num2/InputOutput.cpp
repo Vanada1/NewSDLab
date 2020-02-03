@@ -28,6 +28,7 @@ int Write()
 void OutputList(List* lst)
 {
 	Node* temp = lst->Head;
+	//TODO: nullptr
 	while (temp != NULL)
 	{
 		cout << temp->Data << '\t';
@@ -40,6 +41,7 @@ void OutputList(List* lst)
 void OutputListBack(List* lst)
 {
 	Node* temp = lst->Tail;
+	//TODO: nullptr
 	while (temp != NULL)
 	{
 		cout << temp->Data << '\t';
@@ -52,7 +54,7 @@ void OutputListBack(List* lst)
 void TextOutput()
 {
 	string line;
-
+	//TODO: Ответственности
 	ifstream fil("menu.txt");
 	if (fil.is_open())
 	{

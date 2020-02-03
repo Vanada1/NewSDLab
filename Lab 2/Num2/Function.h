@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+//TODO: Именование файла!
 
+//TODO: Вынести в отдельный файл.
 struct Node
 {
 	int Data;
@@ -21,6 +23,7 @@ void DeleteList(List*);
 void InsertInList(List*, int, int);
 void Sort(List*);
 void LineSearch(List*, int);
+//TODO: Ответственности
 //Input and Output
 int Write();
 void TextOutput();

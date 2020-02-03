@@ -1,20 +1,23 @@
 #include "Function.h"
 #include <ctime>
-
+//TODO: Именование файла!
 using namespace std;
 
+//TODO:rsdn
 void AddElement(List* lst, int quantity)
 {
+	//TODO: Дублируются расчёты времени, правильнее вынести их в директивы препроцессора
 	clock_t begin = clock();
 	for (int i = 0; i < quantity; i++)
 	{
 		InsertInList(lst, rand() % 100, lst->Size - 1);
 	}
 	clock_t end = clock();
+	//TODO:rsdn
 	long double elapsed_secs = long double(end - begin) / CLOCKS_PER_SEC;
 	OutputTime(elapsed_secs, "add elements ");
 }
-
+//TODO:rsdn
 void DeleteElement(List* lst, int index)
 {
 	//clock_t begin = clock();
@@ -67,11 +70,13 @@ void InsertInList(List* lst, int number,int index)
 	//clock_t begin = clock();
 	if (index < 0)
 	{
+		//TODO: Вынести в отдельный файл.
 		Error();
 		return;
 	}
 	else if (index > lst->Size)
 	{
+		//TODO: Ответственности
 		Error();
 		return;
 	}

@@ -6,10 +6,13 @@ using namespace std;
 
 int main()
 {
+	//TODO: nullptr
 	srand(time(NULL));
 
 	bool ending = true;
+	//TODO:rsdn
 	List* lst = new List();
+	//TODO: RSDN
 	int quantity = 0;
 	int control = 0;
 	int number = 0;
@@ -39,6 +42,7 @@ int main()
 
 		switch (control)
 		{
+			//TODO:rsdn
 		case 1:
 			cout << "Enter index\n";
 			index = Write();
