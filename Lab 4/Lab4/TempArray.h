@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
 
-//TODO: Naming
-struct TempArray
+struct SupportArray
 {
 	std::string Key;
 	std::string Value;

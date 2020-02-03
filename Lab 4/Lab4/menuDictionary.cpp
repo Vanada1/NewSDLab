@@ -1,8 +1,7 @@
-//TODO: Название файла
 #include"Dictionary.h"
 #include "InputOutput.h"
 #include "TempArray.h"
-#include "menuDictionary.h"
+#include "MenuDictionary.h"
 #include <iostream>
 #include <ctime>
 
@@ -10,10 +9,9 @@ using namespace std;
 
 int MenuDictionary()
 {
-	//TODO: nullptr
-	srand(time(NULL));
+	srand(time(nullptr));
 	Dictionary* dictionary = new Dictionary;
-	TempArray* temp;
+	SupportArray* temp;
 	//TODO: RSDN
 	string name, book;
 	//TODO: Почему здесь?
@@ -37,11 +35,11 @@ int MenuDictionary()
 			//TODO: RSDN
 		case 1:
 			cout << "Enter Author name ";
-			name = WriteString();
+			cin >> name;
 			cout << endl;
 
 			cout << "Enter Book name ";
-			book = WriteString();
+			cin >> book;
 			cout << endl;
 			if (dictionary->Insert(name, book))
 			{
@@ -55,7 +53,7 @@ int MenuDictionary()
 
 		case 2:
 			cout << "Enter Author name to delete all book ";
-			name = WriteString();
+			cin >> name;
 			cout << endl;
 			if (dictionary->Remove(name))
 			{
@@ -63,13 +61,12 @@ int MenuDictionary()
 			}
 			else
 			{
-				//TODO: ?
-				Error;
+				Error();
 			}
 			break;
 		case 3:
 			cout << "Enter Author name to find all his books ";
-			name = WriteString();
+			cin >> name;
 			cout << endl;
 			temp = dictionary->Find(name);
 			for (int i = 0; i < dictionary->Diction->CountElements; i++)
@@ -91,12 +88,7 @@ int MenuDictionary()
 			for (int i = 0; i < number; i++)
 			{
 				//TODO: RSDN
-				if (!dictionary->Insert(to_string(rand() % 100), to_string(rand() % 100)))
-				{
-					//TODO: ?
-					Error;
-					i--;
-				}
+				dictionary->Insert(to_string(rand() % 100), to_string(rand() % 100));
 			}
 			break;
 		case 9:

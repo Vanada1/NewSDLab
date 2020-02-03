@@ -1,27 +1,23 @@
-//TODO: Название файла
-#include "Hash.h"
+#include "HashTable.h"
 #include "InputOutput.h"
 #include "TempArray.h"
-#include "menuHash.h"
+#include "MenuHashTable.h"
 #include <iostream>
 #include <ctime>
 
 using namespace std;
 
-int MenuHash()
+int MenuHashTable()
 {
-	//TODO: nullptr
-	srand(time(NULL));
-	Hash* hash = new Hash;
-	TempArray* temp;
+	srand(time(nullptr));
+	HashTable* hash = new HashTable;
+	SupportArray* temp;
 	//TODO: RSDN
 	string name, book;
 	//TODO: Почему здесь?
 	int control = 0;
 	int number;
 	bool ending = true;
-	//TODO: ?
-	int size;
 	cout << "Enter the size for table ";
 	cout << endl;
 	hash->CreateHashTable(WriteInt());
@@ -38,11 +34,11 @@ int MenuHash()
 			//TODO: RSDN
 		case 1:
 			cout << "Enter Author name ";
-			name = WriteString();
+			cin >> name;
 			cout << endl;
 
 			cout << "Enter Book name ";
-			book = WriteString();
+			cin >> book;
 			cout << endl;
 			if (hash->Insert(name, book))
 			{
@@ -56,7 +52,7 @@ int MenuHash()
 
 		case 2:
 			cout << "Enter Author name to delete all book ";
-			name = WriteString();
+			cin >> name;
 			cout << endl;
 			if (hash->Remove(name))
 			{
@@ -69,7 +65,7 @@ int MenuHash()
 			break;
 		case 3:
 			cout << "Enter Author name to find all his books ";
-			name = WriteString();
+			cin >> name;
 			cout << endl;
 			temp = hash->Search(name);
 			for (int i = 0; i < hash->CountElements; i++)
@@ -87,12 +83,7 @@ int MenuHash()
 			for (int i = 0; i < number; i++)
 			{
 				//TODO: RSDN
-				if (!hash->Insert(to_string(rand() % 100), to_string(rand() % 100)))
-				{
-					//TODO: ?
-					Error;
-					i--;
-				}
+				hash->Insert(to_string(rand() % 100), to_string(rand() % 100));
 			}
 			break;
 		case 9:

@@ -11,14 +11,14 @@ void Dictionary::DeleteDictionary()
 	delete Diction;
 }
 
-TempArray* Dictionary::Find(std::string key)
+SupportArray* Dictionary::Find(std::string key)
 {
 	return Diction->Search(key);
 }
 
 bool Dictionary::Insert(std::string key, std::string value)
 {
-	int index = Diction->Hashing(key);
+	int index = Diction->HashFunc(key);
 	Item* current = Diction->HashTable[index];
 	while (current != nullptr)
 	{

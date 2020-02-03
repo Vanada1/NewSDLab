@@ -1,7 +1,7 @@
 #include <iostream>
 #include "InputOutput.h"
-#include "menuDictionary.h"
-#include "menuHash.h"
+#include "MenuDictionary.h"
+#include "MenuHashTable.h"
 
 using namespace std;
 
@@ -24,7 +24,7 @@ int main()
 			break;
 
 		case 2:
-			MenuHash();
+			MenuHashTable();
 			break;
 		case 9:
 			ending = false;

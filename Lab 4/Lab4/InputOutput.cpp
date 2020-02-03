@@ -4,26 +4,7 @@
 #include"InputOutput.h"
 
 using namespace std;
-//TODO: Дубль
-string WriteString()
-{
-	bool error;
-	string str;
-	do
-	{
-		error = false;
-		cin >> str;
-		if (cin.fail() || str == "")
-		{
-			cout << "Wrong\n";
-			error = true;
-			cin.clear();
-			cin.ignore(80, '\n');
-		}
-	} while (error);
-	return str;
-}
-//TODO: Дубль
+
 int  WriteInt()
 {
 	bool error;
@@ -77,7 +58,7 @@ void TextOutput(string str)
 	fil.close();
 }
 
-void PrintHashTable(Hash* hashTable)
+void PrintHashTable(HashTable* hashTable)
 {
 	for (int i = 0; i < hashTable->GetTableSize(); i++)
 	{

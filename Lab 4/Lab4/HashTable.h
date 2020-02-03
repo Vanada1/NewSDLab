@@ -1,11 +1,9 @@
 #pragma once
-//TODO: Название файла
 
 #include"TempArray.h"
 #include "Item.h"
 
-//TODO: Naming
-struct Hash
+struct HashTable
 {
 public:
 	Item** HashTable;
@@ -13,14 +11,13 @@ public:
 
 	bool Insert(std::string, std::string);
 	bool Remove(std::string);
-	TempArray* Search(std::string);
+	SupportArray* Search(std::string);
 	bool CreateHashTable(int);
 	int Count(int);
 	void DeleteHashTable();
 	int GetTableSize();
 	bool SetTableSize(int);
-	//TODO: Naming
-	int Hashing(std::string);
+	int HashFunc(std::string);
 private:
 	int _number = 19;
 	int _tableSize = 0;
