@@ -3,4 +3,4 @@
 
 void TextOutput();
 int Write();
-void OutputArray(DynamicArray*);
+void OutputArray(DynamicArray&);
