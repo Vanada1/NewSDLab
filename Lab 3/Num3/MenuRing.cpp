@@ -23,30 +23,30 @@ void MenuRing()
 		control = Write();
 		switch (control)
 		{
-			//TODO: RSDN
-		case 1:
-			cout << "Enter the element\n";
-			number = Write();
-			struc->AddElement(number);
-			cout << "Added\n";
-			break;
-		case 2:
-			number = struc->GetElement();
-			OutputNumberRing(number);
-			break;
-		case 3: 
-			struc->DeleteRingBuf();
-			cout << "Ring deleted\n";
-			break;
-		case 4:
-			struc->Resize();
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			cout << "Wrong\n";
-			break;
+			//TODO: {}
+			case 1:
+				cout << "Enter the element\n";
+				number = Write();
+				struc->AddElement(number);
+				cout << "Added\n";
+				break;
+			case 2:
+				number = struc->GetElement();
+				OutputNumberRing(number);
+				break;
+			case 3: 
+				struc->DeleteRingBuf();
+				cout << "Ring deleted\n";
+				break;
+			case 4:
+				struc->Resize();
+				break;
+			case 9:
+				ending = false;
+				break;
+			default:
+				cout << "Wrong\n";
+				break;
 		}
 	}
 	struc->DeleteRingBuf();

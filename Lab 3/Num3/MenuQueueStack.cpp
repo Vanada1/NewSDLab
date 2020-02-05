@@ -7,6 +7,7 @@ using namespace std;
 
 void MenuQueueStack()
 {
+	//TODO: Naming(Done)
 	QueueTwoStack* queue = new QueueTwoStack();
 	bool IsNotDelete = false;
 	bool ending = true;
@@ -28,35 +29,36 @@ void MenuQueueStack()
 		control = Write();
 		switch (control)
 		{
-			//TODO: RSDN
-		case 1:
-			cout << "Enter the element\n";
-			number = Write();
-			queue->Enqueue(number);
-			break;
-		case 2:
-			number = queue->Dequeue();
-			if (number == -1)
-			{
-				cout << "Nothing return\n";
-			}
-			else
-			{
-				cout << "Number " << number << " out of line\n";
-			}
-			break;
-		case 3:
-			queue->Delete();
-			IsNotDelete = false;
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			cout << "Wrong\n";
-			break;
+			//TODO: RSDN(Done)
+			case 1:
+				cout << "Enter the element\n";
+				number = Write();
+				queue->Enqueue(number);
+				break;
+			case 2:
+				number = queue->Dequeue();
+				if (number == -1)
+				{
+					cout << "Nothing return\n";
+				}
+				else
+				{
+					cout << "Number " << number << " out of line\n";
+				}
+				break;
+			case 3:
+				queue->Delete();
+				IsNotDelete = false;
+				break;
+			case 9:
+				ending = false;
+				break;
+			default:
+				cout << "Wrong\n";
+				break;
 		}
 	}
+	//TODO: вынести в метод (Done)
 	queue->ClearQueue();
 	delete queue;
 }

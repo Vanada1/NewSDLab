@@ -4,6 +4,7 @@
 
 struct RingBuffer
 {
+	//TODO: соединить с ringbuf
 	RingBuf Ring;
 	bool IsNotDelete;
 	void AddElement(int);

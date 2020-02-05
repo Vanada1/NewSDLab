@@ -17,6 +17,7 @@ void QueueRing::CreateQueue()
 
 void QueueRing::Enqueue(int number)
 {
+	//TODO: дубль
 	if ((Buffer->Ring.Tail + 1) % Buffer->Ring.Capacity == Buffer->Ring.Front)
 	{
 		Resize();

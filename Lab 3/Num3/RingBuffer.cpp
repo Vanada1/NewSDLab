@@ -5,8 +5,7 @@
 
 bool IsNothing(int front, int tail)
 {
-	if (front == -1 && tail == -1) return true;
-	else return false;
+	return (front == -1 && tail == -1);
 }
 
 void RingBuffer::Resize()
@@ -35,10 +34,12 @@ void RingBuffer::Resize()
 	}
 }
 
+//TODO: input param
 void RingBuffer::CreateBuffer()
 {
 	Ring.Capacity = BUFFER;
 	Ring.Array = new int[Ring.Capacity];
+	//TODO: вынести
 	Ring.Front = -1;
 	Ring.Tail = -1;
 	Ring.Size = 0;
@@ -51,6 +52,7 @@ void RingBuffer::AddElement(int number)
 	{
 		CreateBuffer();
 	}
+	//TODO: дубль
 	if ((Ring.Tail + 1) % Ring.Capacity == Ring.Front)
 	{
 		OutputNumberRing(GetElement());
@@ -59,6 +61,7 @@ void RingBuffer::AddElement(int number)
 	{
 		Ring.Front = 0;
 	}
+	//TODO: дубль
 	Ring.Tail = (Ring.Tail + 1) % Ring.Capacity;
 	Ring.Array[Ring.Tail] = number;
 	Ring.Size++;
@@ -79,6 +82,7 @@ int RingBuffer::GetElement()
 	}
 	else
 	{
+		//TODO: дубль
 		Ring.Front = (Ring.Front + 1) % Ring.Capacity;
 	}
 	Ring.Size--;

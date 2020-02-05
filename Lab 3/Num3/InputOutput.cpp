@@ -5,9 +5,11 @@
 
 using namespace std;
 
+//TODO: Naming
 int Write()
 {
 	int error;
+	//TODO: Naming
 	int num;
 	do
 	{
@@ -51,15 +53,17 @@ void ShowRingBuf(RingBuf& ring)
 	}
 	else
 	{
+		int temp = ring.Front;
 		cout << "Ring\n";
 		if (ring.Front > ring.Tail)
 		{
-			for (int i = ring.Front; i < ring.Capacity; i++)
+			for (int i = temp; i < ring.Capacity; i++)
 			{
 				cout << ring.Array[i] << "\t";
 			}
+			temp = 0;
 		}
-		for (int i = ring.Front; i <= ring.Tail; i++)
+		for (int i = temp; i <= ring.Tail; i++)
 		{
 			cout << ring.Array[i] << "\t";
 		}
@@ -73,7 +77,7 @@ void Error()
 {
 	cout << "Error\n";
 }
-
+//TODO: Naming
 void FreeSpace(int compasity, int size)
 {
 	cout << "Free place " << compasity - size << endl;
@@ -87,7 +91,7 @@ void OccupiedSpace(int size)
 void TextOutput(string str)
 {
 	string line;
-
+	//TODO: naming
 	ifstream fil(str);
 	if (fil.is_open())
 	{

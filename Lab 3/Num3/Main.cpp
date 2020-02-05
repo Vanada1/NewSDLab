@@ -19,25 +19,25 @@ void main()
 		choise = Write();
 		switch (choise)
 		{
-			//TODO: RSDN
-		case 1:
-			MenuQueueStack();
-			break;
-		case 2:
-			MenuQueueRing();
-			break;
-		case 3:
-			StackMenu();
-			break;
-		case 4:
-			MenuRing();
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			cout << "Unknown command\n";
-			break;
+			//TODO: {}
+			case 1:
+				MenuQueueStack();
+				break;
+			case 2:
+				MenuQueueRing();
+				break;
+			case 3:
+				StackMenu();
+				break;
+			case 4:
+				MenuRing();
+				break;
+			case 9:
+				ending = false;
+				break;
+			default:
+				cout << "Unknown command\n";
+				break;
 		}
 	}
 	cout << "Work is done\n\n";
