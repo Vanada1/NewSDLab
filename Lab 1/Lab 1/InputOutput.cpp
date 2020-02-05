@@ -1,20 +1,18 @@
 #include <iostream>
-#include <fstream>
-#include <string>
 #include "InputOutput.h"
 
 using namespace std;
 
-//TODO: Naming
-int Write()
+//TODO: Naming(Done)
+int ReadInt()
 {
 	bool isNotInt;
-	//TODO: Naming
-	int num;
+	//TODO: Naming(Done)
+	int number;
 	do
 	{
 		isNotInt = false;
-		cin >> num;
+		cin >> number;
 		if (cin.fail())
 		{
 			cout << "Wrong" << endl;
@@ -24,7 +22,7 @@ int Write()
 
 		}
 	} while (isNotInt);
-	return num;
+	return number;
 }
 
 void OutputArray(DynamicArray& arr)
@@ -36,22 +34,14 @@ void OutputArray(DynamicArray& arr)
 	cout << endl;
 }
 
-void TextOutput()
+void ShowResult(bool isDone)
 {
-	//TODO: Ответственности
-	string line;
-	//TODO: Naming
-	ifstream fil("menu.txt");
-	if (fil.is_open())
+	if(isDone)
 	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
+		cout << "Done\n";
 	}
 	else
 	{
-		cout << "Error: cannot open the file";
+		cout << "Error\n";
 	}
-	fil.close();
 }

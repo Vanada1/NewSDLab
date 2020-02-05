@@ -2,8 +2,6 @@
 #include "Realisation.h"
 
 using namespace std;
-//TODO:rsdn
-int const CAP = 4;
 
 bool AddElement(DynamicArray& arr, int number, int index)
 {
@@ -32,7 +30,7 @@ bool AddElement(DynamicArray& arr, int number, int index)
 //TODO: return value
 void CreatArray(DynamicArray& arr)
 {
-	arr.Capacity = CAP;
+	arr.Capacity = CAPACITY;
 	arr.Lenght = 0;
 	arr.Array = new int[arr.Capacity];
 	for (int i = 0; i < arr.Capacity; i++)
@@ -44,7 +42,7 @@ void CreatArray(DynamicArray& arr)
 
 void Resize(DynamicArray* arr)
 {
-	arr->Capacity += CAP;
+	arr->Capacity += CAPACITY;
 	int* temp = new int[arr->Capacity];
 	for (int i = 0; i < arr->Lenght; i++)
 	{
@@ -68,7 +66,7 @@ bool RemoveElement(DynamicArray& arr, int index)
 	return true;
 }
 
-void SortArray(DynamicArray& arr)
+void QuickSortArray(DynamicArray& arr)
 {
 	int counter = 0;
 	for (int i = 1; i < arr.Lenght; i++) 
@@ -98,24 +96,24 @@ bool LineSearch(DynamicArray& arr, int requiredKey, int& index)
 
 bool BinarySearch(DynamicArray& arr, int number, int& index)
 {
-	//TODO: naming
-	int midd = 0;
+	//TODO: naming(Done)
+	int middle = 0;
 	int right = arr.Lenght;
 	int left = 0;
 	while (true)
 	{
-		midd = (left + right) / 2;
-		if (number < arr.Array[midd])
+		middle = (left + right) / 2;
+		if (number < arr.Array[middle])
 		{
-			right = midd - 1;
+			right = middle - 1;
 		}
-		else if (number > arr.Array[midd])
+		else if (number > arr.Array[middle])
 		{
-			left = midd + 1;
+			left = middle + 1;
 		}
 		else
 		{
-			index = midd;
+			index = middle;
 			return true;
 		}
 		if (left > right)

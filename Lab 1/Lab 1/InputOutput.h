@@ -1,6 +1,6 @@
 #pragma once
 #include "DynamicArray.h"
 
-void TextOutput();
-int Write();
+int ReadInt();
 void OutputArray(DynamicArray&);
+void ShowResult(bool);
