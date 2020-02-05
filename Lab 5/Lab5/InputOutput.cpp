@@ -1,9 +1,8 @@
 #include <iostream>
-#include <fstream>
 #include"InputOutput.h"
 
 
-int  WriteInt()
+int  ReadInt()
 {
 	bool error;
 	int number;
@@ -22,36 +21,17 @@ int  WriteInt()
 	return number;
 }
 
-void Error()
+void OutputError()
 {
 	cout << "Error\n";
 }
 
-void None()
+void OutputNone()
 {
 	cout << "None\n";
 }
 
-void TextOutput(string str)
-{
-	string line;
-
-	ifstream fil(str);
-	if (fil.is_open())
-	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
-	}
-	else
-	{
-		cout << "Error: cannot open the file";
-	}
-	fil.close();
-}
-
-void Done()
+void OutputDone()
 {
 	cout << "Done\n";
 }
@@ -61,8 +41,11 @@ void ShowBinaryTree(BinaryTreeNode* node, int level)
 	if (node)
 	{
 		ShowBinaryTree(node->Right, level + 1);
-		//TODO: RSDN
-		for (int i = 0; i < level; i++) cout << "	";
+		//TODO: RSDN(Done)
+		for (int i = 0; i < level; i++)
+		{
+			cout << "	";
+		}
 		cout << node->Data << endl;
 		ShowBinaryTree(node->Left, level + 1);
 	}
@@ -92,8 +75,11 @@ void ShowTreap(TreapNode* node, int level)
 	if (node)
 	{
 		ShowTreap(node->Right, level + 1);
-		//TODO: RSDN
-		for (int i = 0; i < level; i++) cout << "	";
+		//TODO: RSDN(Done)
+		for (int i = 0; i < level; i++)
+		{
+			cout << "	";
+		}
 		cout << '(' << node->Key << "; " << node->Priority << ')' << endl;
 		ShowTreap(node->Left, level + 1);
 	}

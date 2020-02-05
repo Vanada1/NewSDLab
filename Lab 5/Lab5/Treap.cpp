@@ -2,7 +2,7 @@
 
 void Treap::CreateTree(int quantity)
 {
-	//TODO: nullptr
+	//TODO: nullptr(Done)
 	srand(time(nullptr));
 	for (int i = 0; i < quantity; i++)
 	{
@@ -80,8 +80,9 @@ TreapNode* Treap::Merge(TreapNode* left, TreapNode* right)
 
 TreapNode* Treap::AddUnoptimized(int key, int priority)
 {
-	//TODO: RSDN
-	TreapNode* left = nullptr, *right = nullptr;
+	//TODO: RSDN(Done)
+	TreapNode* left = nullptr;
+	TreapNode* right = nullptr;
 	Split(Root, key, left, right);
 	TreapNode* inserted = new TreapNode();
 	inserted->Key = key;

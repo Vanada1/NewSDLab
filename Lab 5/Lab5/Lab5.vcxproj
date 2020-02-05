@@ -158,6 +158,7 @@
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Treap.cpp" />
     <ClCompile Include="TreapMenu.cpp" />
+    <ClCompile Include="WorkWithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryMenu.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Treap.h" />
     <ClInclude Include="TreapMenu.h" />
     <ClInclude Include="TreapNode.h" />
+    <ClInclude Include="WorkWithFiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,11 +7,10 @@
 
 using namespace std;
 
-int  WriteInt();
+int  ReadInt();
 void ShowBinaryTree(BinaryTreeNode*, int);
 void ShowTreap(TreapNode*, int);
 void ShowList(List*);
-void TextOutput(string);
-void Error();
-void None();
-void Done();
+void OutputError();
+void OutputNone();
+void OutputDone();
