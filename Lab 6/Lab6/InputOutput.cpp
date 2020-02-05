@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <windows.h>
 #include <conio.h> 
 #include"InputOutput.h"
@@ -19,7 +18,7 @@ void SetColor(int text, int background)
 //	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
 //}
 
-int  WriteInt()
+int  ReadInt()
 {
 	bool error;
 	int number;
@@ -43,41 +42,22 @@ void Error()
 	cout << "Error\n";
 }
 
-void None()
+void OutputNone()
 {
 	cout << "None\n";
 }
 
-void TextOutput(string str)
-{
-	string line;
-
-	ifstream fil(str);
-	if (fil.is_open())
-	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
-	}
-	else
-	{
-		cout << "Error: cannot open the file";
-	}
-	fil.close();
-}
-
-void Done()
+void OutputDone()
 {
 	cout << "Done\n";
 }
 
-//TODO: RSDN
-void  PrintTree(RBTreeNode* node, int level, RBTreeNode* Nil)
+//TODO: RSDN(DOne)
+void  PrintTree(RBTreeNode* node, int level, RBTreeNode* nil)
 {
-	if (node && node != Nil)
+	if (node && node != nil)
 	{
-		PrintTree(node->Right, level + 1, Nil);
+		PrintTree(node->Right, level + 1, nil);
 		for (int i = 0; i < level; i++) cout << "   ";
 		if (node->Color == RED)
 		{
@@ -88,7 +68,7 @@ void  PrintTree(RBTreeNode* node, int level, RBTreeNode* Nil)
 			SetColor(Cyan, 0);
 		}
 		cout << node->Data << endl;
-		PrintTree(node->Left, level + 1, Nil);
+		PrintTree(node->Left, level + 1, nil);
 	}
 }
 
@@ -97,9 +77,15 @@ void ALVTreeShow(ALVTreeNode* node, int level)
 	if (node)
 	{
 		ALVTreeShow(node->Right, level + 1);
-		//TODO: RSDN
-		for (int i = 0; i < level; i++) cout << "\t";
-		for (int i = 0; i < level; i++) cout << "   ";
+		//TODO: RSDN(Done)
+		for (int i = 0; i < level; i++)
+		{
+			cout << "\t";
+		}
+		for (int i = 0; i < level; i++)
+		{
+			cout << "   ";
+		}
 		cout << node->Data << endl;
 		ALVTreeShow(node->Left, level + 1);
 	}

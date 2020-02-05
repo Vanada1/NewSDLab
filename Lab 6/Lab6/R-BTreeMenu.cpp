@@ -4,89 +4,97 @@
 #include "R-BTreeMenu.h"
 #include "InputOutput.h"
 #include "ConsoleColor.h"
+#include "WorkWithFiles.h"
 
 using namespace std;
 
 void RBTreeMenu()
 {
 	srand(time(nullptr));
-	bool ending = true;
-	//TODO: Почему здесь?
-	int control = 0;
-	int number = 0;
-	//TODO: RSDN
-	RBTree* Tree = new RBTree();
+	bool isEnd = false;
+	//TODO: Почему здесь?(Done)
+	//TODO: RSDN(Done)
+	RBTree* tree = new RBTree();
 	RBTreeNode* searchedElem = nullptr;
 	cout << "How many elements to create ";
-	number = WriteInt();
+	int number = ReadInt();
 	for (int i = 0; i < number; i++)
 	{
-		Tree->Insert(rand() % 100);
+		tree->Insert(rand() % 100);
 	}
 
-	while (ending)
+	while (!isEnd)
 	{
 		system("cls");
-		PrintTree(Tree->Root, 0, Tree->Nil);
+		PrintTree(tree->Root, 0, tree->Nil);
 		SetColor(Cyan, Black);
 		cout << "\nCyan = Black\n";
 		SetColor(Red, Black);
 		cout << "\nRed = Red\n\n";
 		SetColor(White, Black);
 		TextOutput("RedBlackTreeMenu.txt");
-		control = WriteInt();
-		switch (control)
+		switch (ReadInt())
 		{
-			//TODO: RSDN
-		case 1:
-			cout << "Enter the number\n";
-			number = WriteInt();
-			if (Tree->Insert(number))
+			//TODO: RSDN(Done)
+			case 1:
 			{
-				Done();
+				cout << "Enter the number\n";
+				number = ReadInt();
+				if (tree->Insert(number))
+				{
+					OutputDone();
+				}
+				else
+				{
+					Error();
+				}
+				break;
 			}
-			else
+			case 2:
 			{
-				Error();
+				cout << "Enter the number\n";
+				number = ReadInt();
+				if (tree->SearchElem(searchedElem, number))
+				{
+					tree->DeleteElem(searchedElem);
+				}
+				else
+				{
+					OutputNone();
+				}
+				break;
 			}
-			break;
-		case 2:
-			cout << "Enter the number\n";
-			number = WriteInt();
-			if (Tree->SearchElem(searchedElem, number))
+			case 3:
 			{
-				Tree->DeleteElem(searchedElem);
+				cout << "Enter the number\n";
+				number = ReadInt();
+				if (tree->SearchElem(searchedElem, number))
+				{
+					cout << "The number is found \n";
+				}
+				else
+				{
+					OutputNone();
+				}
+				break;
 			}
-			else
+			case 9:
 			{
-				None();
+				isEnd = true;
+				break;
 			}
-			break;
-		case 3:
-			cout << "Enter the number\n";
-			number = WriteInt();
-			if (Tree->SearchElem(searchedElem, number))
+			default:
 			{
-				cout << "The number is found \n";
+				cout << "Strange comand\n";
+				break;
 			}
-			else
-			{
-				None();
-			}
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			cout << "Strange comand\n";
-			break;
 		}
 		system("pause");
 	}
-	if (!Tree->Root)
+	if (!tree->Root)
 	{
-		Tree->ClearTree(Tree->Root);
+		tree->ClearTree(tree->Root);
 	}
-	delete Tree->Nil;
-	delete Tree;
+	delete tree->Nil;
+	delete tree;
 }

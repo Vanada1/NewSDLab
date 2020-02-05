@@ -1,3 +1,7 @@
 #pragma once
-//TODO: RSDN
-enum NodeColor { RED, BLACK };
+//TODO: RSDN (Done)
+enum NodeColor 
+{ 
+	RED,
+	BLACK
+};

@@ -157,6 +157,7 @@
     <ClCompile Include="Lab6.cpp" />
     <ClCompile Include="R-BTree.cpp" />
     <ClCompile Include="R-BTreeMenu.cpp" />
+    <ClCompile Include="WorkWithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ALVTreeMenu.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="R-BTreeNode.h" />
     <ClInclude Include="R-BTree.h" />
     <ClInclude Include="R-BTreeMenu.h" />
+    <ClInclude Include="WorkWithFiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

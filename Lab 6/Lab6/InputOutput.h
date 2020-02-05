@@ -7,11 +7,10 @@
 
 using namespace std;
 
-int  WriteInt();
-void TextOutput(string);
+int  ReadInt();
 void Error();
-void None();
-void Done();
+void OutputNone();
+void OutputDone();
 
 void  PrintTree(RBTreeNode*, int, RBTreeNode*);
 void ALVTreeShow(ALVTreeNode*, int);

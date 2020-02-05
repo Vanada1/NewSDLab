@@ -133,11 +133,9 @@ void RBTree::InsertFixup(RBTreeNode* node)
 
 bool RBTree::Insert(int data)
 {
-	//TODO: RSDN
-	RBTreeNode* current, * parent, * insertedElem;
-
-	current = Root;
-	parent = nullptr;
+	//TODO: RSDN(DOne)
+	RBTreeNode* current = Root;
+	RBTreeNode* parent = nullptr;
 	while (current != Nil && current)
 	{
 		if (data == current->Data) return false;
@@ -145,7 +143,7 @@ bool RBTree::Insert(int data)
 		current = (data < current->Data) ?
 			current->Left : current->Right;
 	}
-	insertedElem = new RBTreeNode(data, RED, parent);
+	RBTreeNode* insertedElem = new RBTreeNode(data, RED, parent);
 	insertedElem->Left = insertedElem->Right = Nil;
 	// insert node in the tree
 	if (parent)
