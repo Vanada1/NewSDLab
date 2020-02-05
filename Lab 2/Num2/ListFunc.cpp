@@ -3,20 +3,20 @@
 #include <iostream>
 using namespace std;
 
-//TODO:rsdn
-long double AddElement(List* lst, int quantity)
+//TODO:rsdn(Done)
+long double AddElement(List* list, int quantity)
 {
 	//TODO: дублируются расчеты времени, правильнее вынести их в рирективы препроцессора
-	long double elapsed_secs = 0;
+	long double elapsedSecs = 0;
 	clock_t begin = clock();
 	for (int i = 0; i < quantity; i++)
 	{
-		InsertInList(lst, rand() % 100, lst->Size - 1, elapsed_secs);
+		InsertInList(list, rand() % 100, list->Size - 1, elapsedSecs);
 	}
 	clock_t end = clock();
-	//TODO:rsdn
-	elapsed_secs = FuncCounting(begin, end);
-	return elapsed_secs;
+	//TODO:rsdn(DOne)
+	elapsedSecs = FuncCounting(begin, end);
+	return elapsedSecs;
 }
 //TODO:rsdn
 bool DeleteElement(List* lst, int index, long double& elapsed_secs)
@@ -113,13 +113,13 @@ bool InsertInList(List* lst, int number,int index, long double& elapsed_secs)
 	return true;
 }
 
-void Sort(List* lst)
+void InsertionSort(List* lst)
 {
-	//TODO: внести
-	Node* minNode;
-	Node* supNode;
 	for (int j = 0; j < lst->Size; j++)
 	{
+		//TODO: внести(Done)
+		Node* minNode;
+		Node* supNode;
 		minNode = lst->Head;
 		supNode = lst->Head->Next;
 		for (int i = 1; i < lst->Size - j; i++)

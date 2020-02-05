@@ -2,10 +2,9 @@
 #include <iostream>
 #include "List.h"
 
-//TODO: Ответственности
+//TODO: Ответственности(Done)
 //Input and Output
-int Write();
-void TextOutput();
+int ReadInt();
 void OutputList(List*);
 void Error();
 void Done();

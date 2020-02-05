@@ -1,29 +1,27 @@
 #include "InputOutput.h"
-#include <string>
-#include <fstream>
 #include <iomanip>
 
 using namespace std;
 
 // функция "умного" ввода
-int Write()
+int ReadInt()
 {
-	int error;
-	//TODO: naming
-	int num;
+	int isNotInt;
+	//TODO: naming(Done)
+	int number;
 	do
 	{
-		error = 0;
-		cin >> num;
+		isNotInt = 0;
+		cin >> number;
 		if (cin.fail())
 		{
 			cout << "Wrong\n";
-			error = 1;
+			isNotInt = 1;
 			cin.clear();
 			cin.ignore(80, '\n');
 		}
-	} while (error == 1);
-	return num;
+	} while (isNotInt == 1);
+	return number;
 }
 
 void OutputList(List* lst)
@@ -48,25 +46,6 @@ void OutputListBack(List* lst)
 	}
 	cout << endl;
 	cout << "Size of list: " << lst->Size << endl;
-}
-
-void TextOutput()
-{
-	string line;
-	//TODO: Ответственности
-	ifstream fil("menu.txt");
-	if (fil.is_open())
-	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
-	}
-	else
-	{
-		cout << "Error: cannot open the file";
-	}
-	fil.close();
 }
 
 void Error()
