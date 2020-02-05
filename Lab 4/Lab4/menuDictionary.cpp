@@ -2,6 +2,7 @@
 #include "InputOutput.h"
 #include "TempArray.h"
 #include "MenuDictionary.h"
+#include "WorkWuthFiles.h"
 #include <iostream>
 #include <ctime>
 
@@ -12,90 +13,103 @@ int MenuDictionary()
 	srand(time(nullptr));
 	Dictionary* dictionary = new Dictionary;
 	SupportArray* temp;
-	//TODO: RSDN
-	string name, book;
-	//TODO: Почему здесь?
-	int control = 0;
-	int number;
-	bool ending = true;
-	int size;
+	//TODO: RSDN(Done)
+	//TODO: Почему здесь?(Done)
+	bool isEnd = false;
 	cout << "Enter the size for table ";
 	cout << endl;
-	dictionary->CreateDictionary(WriteInt());
+	dictionary->CreateDictionary(ReadInt());
 	cout << "Done\n";
-	while (ending)
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
 		PrintDictionary(dictionary);
 		TextOutput("menuDic.txt");
-		control = WriteInt();
-		switch (control)
+		switch (ReadInt())
 		{
-			//TODO: RSDN
-		case 1:
-			cout << "Enter Author name ";
-			cin >> name;
-			cout << endl;
+			//TODO: RSDN(Done)
+			case 1:
+			{
+				cout << "Enter Author name ";
+				string name;
+				string book;
+				cin >> name;
+				cout << endl;
+				cout << "Enter Book name ";
+				cin >> book;
+				cout << endl;
+				if (dictionary->Insert(name, book))
+				{
+					OutputDone();
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
+			}
 
-			cout << "Enter Book name ";
-			cin >> book;
-			cout << endl;
-			if (dictionary->Insert(name, book))
+			case 2:
 			{
-				Done();
+				cout << "Enter Author name to delete all book ";
+				string name;
+				cin >> name;
+				cout << endl;
+				if (dictionary->Remove(name))
+				{
+					OutputDone();
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
 			}
-			else
+			case 3:
 			{
-				Error();
+				cout << "Enter Author name to find all his books ";
+				string name;
+				cin >> name;
+				cout << endl;
+				temp = dictionary->Find(name);
+				for (int i = 0; i < dictionary->Diction->CountElements; i++)
+				{
+					cout << temp[i].Value << "\t";
+				}
+				dictionary->Diction->CountElements = 0;
+				delete[] temp;
+				cout << endl;
+				break;
 			}
-			break;
-
-		case 2:
-			cout << "Enter Author name to delete all book ";
-			cin >> name;
-			cout << endl;
-			if (dictionary->Remove(name))
+			case 4:
 			{
-				Done();
+				system("cls");
+				PrintHashTable(dictionary->Diction);
+				break;
 			}
-			else
+			case 5:
 			{
-				Error();
+				cout << "Enter the number ";
+				int number = ReadInt();
+				cout << endl;
+				for (int i = 0; i < number; i++)
+				{
+					//TODO: RSDN(DOne)
+					dictionary->Insert(to_string(rand() % 100),
+						to_string(rand() % 100));
+				}
+				break;
 			}
-			break;
-		case 3:
-			cout << "Enter Author name to find all his books ";
-			cin >> name;
-			cout << endl;
-			temp = dictionary->Find(name);
-			for (int i = 0; i < dictionary->Diction->CountElements; i++)
+			case 9:
 			{
-				cout << temp[i].Value << "\t";
+				isEnd = true;
+				break;
 			}
-			dictionary->Diction->CountElements = 0;
-			delete[] temp;
-			cout << endl;
-			break;
-		case 4:
-			system("cls");
-			PrintHashTable(dictionary->Diction);
-			break;
-		case 5:
-			cout << "Enter the number ";
-			number = WriteInt();
-			cout << endl;
-			for (int i = 0; i < number; i++)
+			default:
 			{
-				//TODO: RSDN
-				dictionary->Insert(to_string(rand() % 100), to_string(rand() % 100));
+				break;
 			}
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			break;
 		}
 	}
 	dictionary->DeleteDictionary();

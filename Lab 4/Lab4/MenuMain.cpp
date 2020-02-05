@@ -2,33 +2,37 @@
 #include "InputOutput.h"
 #include "MenuDictionary.h"
 #include "MenuHashTable.h"
+#include "WorkWuthFiles.h"
 
 using namespace std;
 
 int main()
 {
-	//TODO: Почему здесь?
-	int control = 0;
-	bool ending = true;
-	while (ending)
+	//TODO: Почему здесь?(Done)
+	bool isEnd = false;
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
 		TextOutput("main.txt");
-		control = WriteInt();
-		switch (control)
+		switch (ReadInt())
 		{
-			//TODO: RSDN
-		case 1:
-			MenuDictionary();
-			break;
-
-		case 2:
-			MenuHashTable();
-			break;
-		case 9:
-			ending = false;
-			break;
+			//TODO: RSDN(Done)
+			case 1:
+			{
+				MenuDictionary();
+				break;
+			}
+			case 2:
+			{
+				MenuHashTable();
+				break;
+			}
+			case 9:
+			{
+				isEnd = true;
+				break;
+			}
 		}
 	}
 }

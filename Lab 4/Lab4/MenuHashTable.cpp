@@ -2,6 +2,7 @@
 #include "InputOutput.h"
 #include "TempArray.h"
 #include "MenuHashTable.h"
+#include "WorkWuthFiles.h"
 #include <iostream>
 #include <ctime>
 
@@ -12,28 +13,27 @@ int MenuHashTable()
 	srand(time(nullptr));
 	HashTable* hash = new HashTable;
 	SupportArray* temp;
-	//TODO: RSDN
-	string name, book;
-	//TODO: Почему здесь?
-	int control = 0;
-	int number;
-	bool ending = true;
+	//TODO: RSDN(Done)
+	//TODO: Почему здесь?(Done)
+	bool isEnd = false;
 	cout << "Enter the size for table ";
 	cout << endl;
-	hash->CreateHashTable(WriteInt());
+	hash->CreateHashTable(ReadInt());
 	cout << "Done\n";
-	while (ending)
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
 		PrintHashTable(hash);
 		TextOutput("menuHash.txt");
-		control = WriteInt();
-		switch (control)
+		switch (ReadInt())
 		{
-			//TODO: RSDN
+			//TODO: RSDN(Done)
 		case 1:
+		{
 			cout << "Enter Author name ";
+			string name;
+			string book;
 			cin >> name;
 			cout << endl;
 
@@ -42,29 +42,35 @@ int MenuHashTable()
 			cout << endl;
 			if (hash->Insert(name, book))
 			{
-				Done();
+				OutputDone();
 			}
 			else
 			{
-				Error();
+				OutputError();
 			}
 			break;
+		}
 
 		case 2:
+		{
 			cout << "Enter Author name to delete all book ";
+			string name;
 			cin >> name;
 			cout << endl;
 			if (hash->Remove(name))
 			{
-				Done();
+				OutputDone();
 			}
 			else
 			{
-				Error;
+				OutputError;
 			}
 			break;
+		}
 		case 3:
+		{
 			cout << "Enter Author name to find all his books ";
+			string name;
 			cin >> name;
 			cout << endl;
 			temp = hash->Search(name);
@@ -76,21 +82,29 @@ int MenuHashTable()
 			delete[] temp;
 			cout << endl;
 			break;
+		}
 		case 4:
+		{
 			cout << "Enter the number ";
-			number = WriteInt();
+			int number = ReadInt();
 			cout << endl;
 			for (int i = 0; i < number; i++)
 			{
-				//TODO: RSDN
-				hash->Insert(to_string(rand() % 100), to_string(rand() % 100));
+				//TODO: RSDN(Done)
+				hash->Insert(to_string(rand() % 100),
+					to_string(rand() % 100));
 			}
 			break;
+		}
 		case 9:
-			ending = false;
+		{
+			isEnd = true;
 			break;
+		}
 		default:
+		{
 			break;
+		}
 		}
 	}
 	hash->DeleteHashTable();

@@ -1,11 +1,9 @@
 #include <iostream>
-#include <fstream>
-#include <string>
 #include"InputOutput.h"
 
 using namespace std;
 
-int  WriteInt()
+int  ReadInt()
 {
 	bool error;
 	int number;
@@ -24,12 +22,12 @@ int  WriteInt()
 	return number;
 }
 
-void Error()
+void OutputError()
 {
 	cout << "Error\n";
 }
 
-void None()
+void OutputNone()
 {
 	cout << "None\n";
 }
@@ -37,25 +35,6 @@ void None()
 void RehashingDone()
 {
 	cout << "Rehashing done\n";
-}
-
-void TextOutput(string str)
-{
-	string line;
-
-	ifstream fil(str);
-	if (fil.is_open())
-	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
-	}
-	else
-	{
-		cout << "Error: cannot open the file";
-	}
-	fil.close();
 }
 
 void PrintHashTable(HashTable* hashTable)
@@ -99,7 +78,7 @@ void ShowResult(string value)
 	cout << value << endl;
 }
 
-void Done()
+void OutputDone()
 {
 	cout << "Done\n";
 }

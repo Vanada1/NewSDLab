@@ -157,6 +157,7 @@
     <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="MenuHashTable.cpp" />
     <ClCompile Include="MenuMain.cpp" />
+    <ClCompile Include="WorkWhithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dictionary.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="MenuDictionary.h" />
     <ClInclude Include="MenuHashTable.h" />
     <ClInclude Include="TempArray.h" />
+    <ClInclude Include="WorkWuthFiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

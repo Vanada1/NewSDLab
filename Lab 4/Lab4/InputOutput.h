@@ -3,12 +3,11 @@
 #include"HashTable.h"
 #include"Dictionary.h"
 
-void Error();
-int  WriteInt();
-void TextOutput(std::string);
+void OutputError();
+int  ReadInt();
 void PrintHashTable(HashTable*);
 void PrintDictionary(Dictionary*);
 void ShowResult(std::string);
-void None();
+void OutputNone();
 void RehashingDone();
-void Done();
+void OutputDone();

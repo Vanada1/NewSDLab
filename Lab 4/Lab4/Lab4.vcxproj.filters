@@ -33,6 +33,9 @@
     <ClCompile Include="MenuHashTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WorkWhithFiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dictionary.h">
@@ -54,6 +57,9 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="MenuDictionary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkWuthFiles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
