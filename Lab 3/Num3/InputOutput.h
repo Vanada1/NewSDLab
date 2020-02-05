@@ -1,15 +1,14 @@
 #pragma once
 
 #include<string>
-#include"RingBuf.h"
+#include "RingBuffer.h"
 #include"Stack.h"
 
-void ShowRingBuf(RingBuf&);
-void FreeSpace(int, int);
+void ShowRingBuf(int* array, int front, int tail, int capacity);
+void ShowFreeSpace(int, int);
 void OccupiedSpace(int);
 void Error();
-int Write();
-void TextOutput(std::string);
+int ReadInt();
 void OutputNumberRing(int number);
 void ShowStackQueue(Stack*);
 bool IsNothing(int, int);

@@ -12,13 +12,14 @@ int QueueRing::Dequeue()
 
 void QueueRing::CreateQueue()
 {
-	Buffer->CreateBuffer();
+	Buffer->CreateBuffer(BUFFER);
 }
 
 void QueueRing::Enqueue(int number)
 {
-	//TODO: дубль
-	if ((Buffer->Ring.Tail + 1) % Buffer->Ring.Capacity == Buffer->Ring.Front)
+	//TODO: дубль(Done)
+	if (Buffer->CalculationFunction(Buffer->Tail,
+		Buffer->Capacity) == Buffer->Front)
 	{
 		Resize();
 	}

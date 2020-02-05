@@ -2,6 +2,7 @@
 #include"InputOutput.h"
 #include"MenuQueueStack.h"
 #include"QueueTwoStack.h"
+#include "WorkWithFiles.h"
 
 using namespace std;
 
@@ -10,12 +11,10 @@ void MenuQueueStack()
 	//TODO: Naming(Done)
 	QueueTwoStack* queue = new QueueTwoStack();
 	bool IsNotDelete = false;
-	bool ending = true;
-	//TODO: Почему здесь?
-	int control = 0;
-	int number = 0;
+	bool isEnd = false;
+	//TODO: Почему здесь?(DOne)
 
-	while (ending)
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
@@ -26,18 +25,20 @@ void MenuQueueStack()
 		}
 		ShowStackQueue(queue->Main);
 		TextOutput("QueueStak_menu.txt");
-		control = Write();
-		switch (control)
+		switch (ReadInt())
 		{
 			//TODO: RSDN(Done)
 			case 1:
+			{
 				cout << "Enter the element\n";
-				number = Write();
+				int number = ReadInt();
 				queue->Enqueue(number);
 				break;
+			}
 			case 2:
-				number = queue->Dequeue();
-				if (number == -1)
+			{
+				int number; 
+				if (queue->Dequeue(number))
 				{
 					cout << "Nothing return\n";
 				}
@@ -46,16 +47,23 @@ void MenuQueueStack()
 					cout << "Number " << number << " out of line\n";
 				}
 				break;
+			}
 			case 3:
+			{
 				queue->Delete();
 				IsNotDelete = false;
 				break;
+			}
 			case 9:
-				ending = false;
+			{
+				isEnd = true;
 				break;
+			}
 			default:
+			{
 				cout << "Wrong\n";
 				break;
+			}
 		}
 	}
 	//TODO: вынести в метод (Done)

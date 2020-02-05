@@ -2,51 +2,64 @@
 #include"InputOutput.h"
 #include "MenuRing.h"
 #include"RingBuffer.h"
+#include"WorkWithFiles.h"
 
 using namespace std;
 
 void MenuRing()
 {
-	RingBuffer* struc = new RingBuffer();
-	struc->CreateBuffer();
-	bool ending = true;
-	//TODO: Почему здесь?
-	int control = 0;
-	int number = 0;
-
-	while (ending)
+	RingBuffer* struc = new RingBuffer;
+	struc->CreateBuffer(BUFFER);
+	bool isEnd = false;
+	//TODO: Почему здесь?(Done)
+	
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
-		ShowRingBuf(struc->Ring);
+		ShowRingBuf(struc->Array, struc->Front,
+			struc->Tail, struc->Capacity);
+		ShowFreeSpace(struc->Capacity, struc->Size);
+		OccupiedSpace(struc->Size);
 		TextOutput("QueueRingBuff_menu.txt");
-		control = Write();
-		switch (control)
+		switch (ReadInt())
 		{
-			//TODO: {}
+			//TODO: {}(Done)
 			case 1:
+			{
 				cout << "Enter the element\n";
-				number = Write();
+				int number = ReadInt();
 				struc->AddElement(number);
 				cout << "Added\n";
 				break;
+			}
 			case 2:
-				number = struc->GetElement();
+			{
+				int number = struc->GetElement();
 				OutputNumberRing(number);
 				break;
-			case 3: 
+			}
+			case 3:
+			{
 				struc->DeleteRingBuf();
 				cout << "Ring deleted\n";
 				break;
+			}
 			case 4:
+			{
 				struc->Resize();
 				break;
+			}
 			case 9:
-				ending = false;
+			{
+				isEnd = true;
 				break;
+			}
 			default:
+			{
 				cout << "Wrong\n";
 				break;
+			}
 		}
 	}
 	struc->DeleteRingBuf();

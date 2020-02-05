@@ -161,6 +161,7 @@
     <ClCompile Include="QueueTwoStack.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackMenu.cpp" />
+    <ClCompile Include="WorkWithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputOutput.h" />
@@ -169,11 +170,11 @@
     <ClInclude Include="MenuRing.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="QueueRing.h" />
-    <ClInclude Include="RingBuf.h" />
     <ClInclude Include="RingBuffer.h" />
     <ClInclude Include="QueueTwoStack.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackMenu.h" />
+    <ClInclude Include="WorkWithFiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

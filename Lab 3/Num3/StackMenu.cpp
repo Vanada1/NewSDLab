@@ -1,6 +1,7 @@
 #include <iostream>
 #include "StackMenu.h"
 #include "InputOutput.h"
+#include"WorkWithFiles.h"
 
 using namespace std;
 
@@ -9,9 +10,7 @@ void StackMenu()
 	Stack* stack = new Stack();
 	bool isNotDelete = false;
 	bool ending = true;
-	//TODO: Почему здесь?
-	int control = 0;
-	int number = 0;
+	//TODO: Почему здесь?(Done)
 
 	while (ending)
 	{
@@ -19,17 +18,20 @@ void StackMenu()
 		system("cls");
 		ShowStackQueue(stack);
 		TextOutput("Stak_menu.txt");
-		control = Write();
-		switch (control)
+		switch (ReadInt())
 		{
-			//TODO: {}
+			//TODO: {}(Done)
 			case 1:
+			{
 				cout << "Enter the element\n";
-				number = Write();
+				int number = ReadInt();
 				stack->Push(number);
-				break;
+				break; 
+			}
+
 			case 2:
-				number = stack->Pop();
+			{
+				int number = stack->Pop();
 				if (number == -1)
 				{
 					cout << "Nothing return\n";
@@ -39,15 +41,22 @@ void StackMenu()
 					cout << "Number " << number << " out of line\n";
 				}
 				break;
+			}
 			case 3:
+			{
 				stack->ClearStack();
 				break;
+			}
 			case 9:
+			{
 				ending = false;
 				break;
+			}
 			default:
+			{
 				cout << "Wrong\n";
 				break;
+			}
 		}
 	}
 	stack->ClearStack();

@@ -18,12 +18,12 @@ void QueueTwoStack::CreateQueue()
 	Peripheral = new Stack();
 }
 
-int QueueTwoStack::Dequeue()
+bool QueueTwoStack::Dequeue(int& number)
 {
 	InvertedStack(Main, Peripheral);
-	int temp = Peripheral->Pop();
+	number = Peripheral->Pop();
 	InvertedStack(Peripheral, Main);
-	return temp;
+	return (number != -1);
 }
 
 void QueueTwoStack::InvertedStack(Stack*& main, Stack*& second)

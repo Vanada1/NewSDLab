@@ -1,29 +1,27 @@
 #include <iostream>
-#include <fstream>
-#include <string>
 #include"InputOutput.h"
 
 using namespace std;
 
-//TODO: Naming
-int Write()
+//TODO: Naming(Done)
+int ReadInt()
 {
-	int error;
-	//TODO: Naming
-	int num;
+	int isNotInt;
+	//TODO: Naming(Done)
+	int number;
 	do
 	{
-		error = 0;
-		cin >> num;
+		isNotInt = 0;
+		cin >> number;
 		if (cin.fail())
 		{
 			cout << "Wrong\n";
-			error = 1;
+			isNotInt = 1;
 			cin.clear();
 			cin.ignore(80, '\n');
 		}
-	} while (error == 1);
-	return num;
+	} while (isNotInt == 1);
+	return number;
 }
 
 void ShowStackQueue(Stack* main)
@@ -45,31 +43,29 @@ void ShowStackQueue(Stack* main)
 	}
 }
 
-void ShowRingBuf(RingBuf& ring)
+void ShowRingBuf(int* array, int front, int tail, int capacity)
 {
-	if (IsNothing(ring.Front, ring.Tail))
+	if (IsNothing(front, tail))
 	{
 		cout << "No buffer\n";
 	}
 	else
 	{
-		int temp = ring.Front;
+		int temp = front;
 		cout << "Ring\n";
-		if (ring.Front > ring.Tail)
+		if (front > tail)
 		{
-			for (int i = temp; i < ring.Capacity; i++)
+			for (int i = temp; i < capacity; i++)
 			{
-				cout << ring.Array[i] << "\t";
+				cout << array[i] << "\t";
 			}
 			temp = 0;
 		}
-		for (int i = temp; i <= ring.Tail; i++)
+		for (int i = temp; i <= tail; i++)
 		{
-			cout << ring.Array[i] << "\t";
+			cout << array[i] << "\t";
 		}
 		cout << endl;
-		FreeSpace(ring.Capacity, ring.Size);
-		OccupiedSpace(ring.Size);
 	}
 }
 
@@ -77,8 +73,8 @@ void Error()
 {
 	cout << "Error\n";
 }
-//TODO: Naming
-void FreeSpace(int compasity, int size)
+//TODO: Naming(Done)
+void ShowFreeSpace(int compasity, int size)
 {
 	cout << "Free place " << compasity - size << endl;
 }
@@ -86,25 +82,6 @@ void FreeSpace(int compasity, int size)
 void OccupiedSpace(int size)
 {
 	cout << "Occupied place " << size << endl;
-}
-
-void TextOutput(string str)
-{
-	string line;
-	//TODO: naming
-	ifstream fil(str);
-	if (fil.is_open())
-	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
-	}
-	else
-	{
-		cout << "Error: cannot open the file";
-	}
-	fil.close();
 }
 
 void OutputNumberRing (int number)
