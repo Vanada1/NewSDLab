@@ -6,7 +6,7 @@
 //Input and Output
 int ReadInt();
 void OutputList(List*);
-void Error();
-void Done();
+void OutputError();
+void OutputDone();
 void OutputTime(long double, std::string);
 void OutputListBack(List*);

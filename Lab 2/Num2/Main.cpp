@@ -3,6 +3,7 @@
 #include"WorkWithFiles.h"
 #include "InputOutput.h"
 #include <ctime>
+#define SWITCH 0
 
 using namespace std;
 
@@ -18,14 +19,20 @@ int main()
 	int quantity = ReadInt();
 	cout << endl;
 	long double elapsed_secs = 0;
+#if SWITCH == 1
 	clock_t begin = clock();
+#endif
+
 	for (int i = 0; i < quantity; i++)
 	{
 		InsertInList(list, rand() % 100, list->Size, elapsed_secs);
 	}
+
+#if SWITCH == 1
 	clock_t end = clock();
 	elapsed_secs = FuncCounting(begin, end);
 	OutputTime(elapsed_secs, "create of list ");
+#endif
 
 	while (!isEnd)
 	{
@@ -43,12 +50,14 @@ int main()
 				int index = ReadInt();
 				if (DeleteElement(list, index, elapsed_secs))
 				{
-					Done();
-					OutputTime(elapsed_secs, "delete element ");
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "delete element ");
+					#endif
 				}
 				else
 				{
-					Error();
+					OutputError();
 				}
 				break;
 			}
@@ -58,12 +67,14 @@ int main()
 				int number = ReadInt();
 				if (InsertInList(list, number, 0, elapsed_secs))
 				{
-					Done();
-					OutputTime(elapsed_secs, "add element ");
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
 				}
 				else
 				{
-					Error();
+					OutputError();
 				}
 				break;
 			}
@@ -73,12 +84,14 @@ int main()
 				int number = ReadInt();
 				if (InsertInList(list, number, list->Size, elapsed_secs))
 				{
-					Done();
-					OutputTime(elapsed_secs, "add element ");
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
 				}
 				else
 				{
-					Error();
+					OutputError();
 				}
 				break;
 			}
@@ -90,12 +103,14 @@ int main()
 				int index = ReadInt();
 				if (InsertInList(list, number, index + 1, elapsed_secs))
 				{
-					Done();
-					OutputTime(elapsed_secs, "add element ");
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
 				}
 				else
 				{
-					Error();
+					OutputError();
 				}
 				break;
 			}
@@ -107,12 +122,14 @@ int main()
 				int index = ReadInt();
 				if (InsertInList(list, number, index, elapsed_secs))
 				{
-					Done();
-					OutputTime(elapsed_secs, "add element ");
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
 				}
 				else
 				{
-					Error();
+					OutputError();
 				}
 				break;
 			}

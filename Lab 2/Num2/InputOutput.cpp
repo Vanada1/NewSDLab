@@ -48,12 +48,12 @@ void OutputListBack(List* lst)
 	cout << "Size of list: " << lst->Size << endl;
 }
 
-void Error()
+void OutputError()
 {
 	cout << "Error\n";
 }
 
-void Done()
+void OutputDone()
 {
 	cout << "Done\n";
 }

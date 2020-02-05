@@ -28,7 +28,7 @@ void RingBuffer::Resize()
 	}
 	else
 	{
-		Error();
+		OutputError();
 	}
 }
 
@@ -66,7 +66,7 @@ int RingBuffer::GetElement()
 {
 	if (IsNothing(Front, Tail))
 	{
-		Error();
+		OutputError();
 		return -1;
 	}
 	int temp = Array[Front];

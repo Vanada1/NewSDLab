@@ -7,7 +7,7 @@
 void ShowRingBuf(int* array, int front, int tail, int capacity);
 void ShowFreeSpace(int, int);
 void OccupiedSpace(int);
-void Error();
+void OutputError();
 int ReadInt();
 void OutputNumberRing(int number);
 void ShowStackQueue(Stack*);

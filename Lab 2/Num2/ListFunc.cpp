@@ -8,20 +8,26 @@ long double AddElement(List* list, int quantity)
 {
 	//TODO: дублируются расчеты времени, правильнее вынести их в рирективы препроцессора
 	long double elapsedSecs = 0;
+#if SWITCH == 1
 	clock_t begin = clock();
+#endif
 	for (int i = 0; i < quantity; i++)
 	{
 		InsertInList(list, rand() % 100, list->Size - 1, elapsedSecs);
 	}
+#if SWITCH == 1
 	clock_t end = clock();
 	//TODO:rsdn(DOne)
 	elapsedSecs = FuncCounting(begin, end);
+#endif
 	return elapsedSecs;
 }
 //TODO:rsdn
 bool DeleteElement(List* lst, int index, long double& elapsed_secs)
 {
+#if SWITCH == 1
 	clock_t begin = clock();
+#endif
 	if (index < 0 || index >= lst->Size)
 	{
 		return false;
@@ -54,15 +60,18 @@ bool DeleteElement(List* lst, int index, long double& elapsed_secs)
 	}
 	delete temp;
 	lst->Size--;
-
+#if SWITCH == 1
 	clock_t end = clock();
 	elapsed_secs = FuncCounting(begin, end);
+#endif
 	return true;
 }
 
 bool InsertInList(List* lst, int number,int index, long double& elapsed_secs)
 {
+#if SWITCH == 1
 	clock_t begin = clock();
+#endif
 	if (index < 0 || index > lst->Size)
 	{
 		return false;
@@ -108,8 +117,10 @@ bool InsertInList(List* lst, int number,int index, long double& elapsed_secs)
 		inserted->Next = current;
 	}
 	lst->Size++;
+#if SWITCH == 1
 	clock_t end = clock();
 	elapsed_secs = FuncCounting(begin, end);
+#endif
 	return true;
 }
 

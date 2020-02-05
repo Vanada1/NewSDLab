@@ -69,7 +69,7 @@ void ShowRingBuf(int* array, int front, int tail, int capacity)
 	}
 }
 
-void Error()
+void OutputError()
 {
 	cout << "Error\n";
 }
