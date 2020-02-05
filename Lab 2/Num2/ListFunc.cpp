@@ -6,6 +6,7 @@ using namespace std;
 //TODO:rsdn
 long double AddElement(List* lst, int quantity)
 {
+	//TODO: дублируются расчеты времени, правильнее вынести их в рирективы препроцессора
 	long double elapsed_secs = 0;
 	clock_t begin = clock();
 	for (int i = 0; i < quantity; i++)
@@ -21,11 +22,7 @@ long double AddElement(List* lst, int quantity)
 bool DeleteElement(List* lst, int index, long double& elapsed_secs)
 {
 	clock_t begin = clock();
-	if (index < 0)
-	{
-		return false;
-	}
-	else if (index >= lst->Size)
+	if (index < 0 || index >= lst->Size)
 	{
 		return false;
 	}
@@ -66,11 +63,7 @@ bool DeleteElement(List* lst, int index, long double& elapsed_secs)
 bool InsertInList(List* lst, int number,int index, long double& elapsed_secs)
 {
 	clock_t begin = clock();
-	if (index < 0)
-	{
-		return false;
-	}
-	else if (index > lst->Size)
+	if (index < 0 || index > lst->Size)
 	{
 		return false;
 	}
@@ -122,6 +115,7 @@ bool InsertInList(List* lst, int number,int index, long double& elapsed_secs)
 
 void Sort(List* lst)
 {
+	//TODO: внести
 	Node* minNode;
 	Node* supNode;
 	for (int j = 0; j < lst->Size; j++)

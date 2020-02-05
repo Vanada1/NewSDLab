@@ -9,6 +9,7 @@ using namespace std;
 int Write()
 {
 	int error;
+	//TODO: naming
 	int num;
 	do
 	{
