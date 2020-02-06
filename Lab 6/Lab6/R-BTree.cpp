@@ -42,17 +42,17 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 {
 
 	RBTreeNode* temp = RotateElem->Left;
-	//establish RotateElem->Left link
 	RotateElem->Left = temp->Right;
 	if (temp->Right != Nil)
 	{
 		temp->Right->Parent = RotateElem;
 	}
-	//establish temp->Parent link
+
 	if (temp != Nil)
 	{
 		temp->Parent = RotateElem->Parent;
 	}
+
 	if (RotateElem->Parent) 
 	{
 		if (RotateElem == RotateElem->Parent->Right)
@@ -68,6 +68,7 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 	{
 		Root = temp;
 	}
+
 	temp->Right = RotateElem;
 	if (RotateElem != Nil)
 	{
@@ -82,7 +83,6 @@ void RBTree::InsertFixup(RBTreeNode* node)
 		if (node->Parent == node->Parent->Parent->Left)
 		{
 			RBTreeNode* uncle = node->Parent->Parent->Right;
-			// if uncle is RED
 			if (uncle->Color == RED)
 			{
 				node->Parent->Color = BLACK;
@@ -90,7 +90,6 @@ void RBTree::InsertFixup(RBTreeNode* node)
 				node->Parent->Parent->Color = RED;
 				node = node->Parent->Parent;
 			}
-			// if uncle is BLACK
 			else
 			{
 				if (node == node->Parent->Right)
@@ -98,17 +97,15 @@ void RBTree::InsertFixup(RBTreeNode* node)
 					node = node->Parent;
 					RotateLeft(node);
 				}
-				// recolor and rotate
 				node->Parent->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				RotateRight(node->Parent->Parent);
 			}
 		}
+		// mirror
 		else
 		{
-			// mirror image of above code 
 			RBTreeNode* uncle = node->Parent->Parent->Left;
-			// if uncle is RED
 			if (uncle->Color == RED)
 			{
 				node->Parent->Color = BLACK;
@@ -116,7 +113,6 @@ void RBTree::InsertFixup(RBTreeNode* node)
 				node->Parent->Parent->Color = RED;
 				node = node->Parent->Parent;
 			}
-			// if uncle is BLACK
 			else
 			{
 				if (node == node->Parent->Left)
@@ -124,7 +120,6 @@ void RBTree::InsertFixup(RBTreeNode* node)
 					node = node->Parent;
 					RotateRight(node);
 				}
-				// recolor and rotate
 				node->Parent->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				RotateLeft(node->Parent->Parent);
@@ -147,7 +142,6 @@ bool RBTree::Insert(int data)
 	}
 	RBTreeNode* insertedElem = new RBTreeNode(data, RED, parent);
 	insertedElem->Left = insertedElem->Right = Nil;
-	// insert node in the tree
 	if (parent)
 	{
 		if (data < parent->Data)
@@ -173,7 +167,6 @@ void RBTree::DeleteFixup(RBTreeNode* node)
 	{
 		if (node == node->Parent->Left)
 		{
-			//TODO: дубль?
 			RBTreeNode* temp = node->Parent->Right;
 			if (temp->Color == RED)
 			{
@@ -207,7 +200,6 @@ void RBTree::DeleteFixup(RBTreeNode* node)
 		// mirror 
 		else
 		{
-			//TODO: дубль?
 			RBTreeNode* temp = node->Parent->Left;
 			if (temp->Color == RED)
 			{
@@ -244,8 +236,9 @@ void RBTree::DeleteFixup(RBTreeNode* node)
 
 bool RBTree::DeleteElem(RBTreeNode* elem)
 {
-	//TODO: rsdn
-	RBTreeNode* temp, *deleteElem;
+	//TODO: rsdn(Done)
+	RBTreeNode* temp;
+	RBTreeNode* deleteElem;
 
 	if (!elem || elem == Nil) return false;
 

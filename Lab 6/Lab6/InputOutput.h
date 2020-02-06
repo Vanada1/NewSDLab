@@ -8,8 +8,8 @@
 using namespace std;
 
 int  ReadInt();
-//TODO: naming
-void Error();
+//TODO: naming(Done)
+void OutputError();
 void OutputNone();
 void OutputDone();
 

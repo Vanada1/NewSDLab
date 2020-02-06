@@ -19,9 +19,9 @@ private:
 	ALVTreeNode* SearchMin(ALVTreeNode*);
 	ALVTreeNode* RemoveMin(ALVTreeNode*);
 
-	//TODO: naming
-	unsigned int Height(ALVTreeNode*);
-	//TODO: naming
-	int Bfactor(ALVTreeNode*);
+	//TODO: naming(Done)
+	unsigned int CountHeight(ALVTreeNode*);
+	//TODO: naming(Done)
+	int CountBalaceFactor(ALVTreeNode*);
 	void Fixheight(ALVTreeNode*);
 };

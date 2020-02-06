@@ -20,5 +20,7 @@ private:
 	void RotateLeft(RBTreeNode*);
 	void RotateRight(RBTreeNode*);
 	void InsertFixup(RBTreeNode*);
+	void InsertFixupBranch(RBTreeNode*, bool);
 	void DeleteFixup(RBTreeNode*);
+	void DeleteFixupBranch(RBTreeNode*, bool);
 };

@@ -43,7 +43,7 @@ void RBTreeMenu()
 				}
 				else
 				{
-					Error();
+					OutputError();
 				}
 				break;
 			}

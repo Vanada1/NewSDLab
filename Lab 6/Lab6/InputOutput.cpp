@@ -31,7 +31,7 @@ int  ReadInt()
 	return number;
 }
 
-void Error()
+void OutputError()
 {
 	cout << "Error\n";
 }

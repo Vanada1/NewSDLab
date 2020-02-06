@@ -128,18 +128,18 @@ ALVTreeNode* ALVTree::RotateLeft(ALVTreeNode* node)
 ALVTreeNode* ALVTree::Balace(ALVTreeNode* node)
 {
 	Fixheight(node);
-	if (Bfactor(node) == 2)
+	if (CountBalaceFactor(node) == 2)
 	{
-		if (Bfactor(node->Right) < 0)
+		if (CountBalaceFactor(node->Right) < 0)
 		{
 			node->Right = RotateRight(node->Right);
 		}
 		return RotateLeft(node);
 	}
 
-	if (Bfactor(node) == -2)
+	if (CountBalaceFactor(node) == -2)
 	{
-		if (Bfactor(node->Left) > 0)
+		if (CountBalaceFactor(node->Left) > 0)
 		{
 			node->Left = RotateLeft(node->Left);
 		}
@@ -149,19 +149,19 @@ ALVTreeNode* ALVTree::Balace(ALVTreeNode* node)
 }
 
 // support function 
-unsigned int ALVTree::Height(ALVTreeNode* node)
+unsigned int ALVTree::CountHeight(ALVTreeNode* node)
 {
 	return node ? node->Height : 0;
 }
 
-int ALVTree::Bfactor(ALVTreeNode* node)
+int ALVTree::CountBalaceFactor(ALVTreeNode* node)
 {
-	return Height(node->Right) - Height(node->Left);
+	return CountHeight(node->Right) - CountHeight(node->Left);
 }
 
 void ALVTree::Fixheight(ALVTreeNode* node)
 {
-	unsigned int heightL = Height(node->Left);
-	unsigned int heightR = Height(node->Right);
+	unsigned int heightL = CountHeight(node->Left);
+	unsigned int heightR = CountHeight(node->Right);
 	node->Height = (heightL > heightR ? heightL : heightR) + 1;
 }
