@@ -1,14 +1,12 @@
-#include <iostream>
-#include <string>
-#include <fstream>
+#include "WorkWithFiles.h"
 
 using namespace std;
 
-void TextOutput()
+void TextOutput(string str)
 {
 	string line;
-	//TODO: Ответственности(Done)
-	ifstream file("menu.txt");
+
+	ifstream file(str);
 	if (file.is_open())
 	{
 		while (getline(file, line))

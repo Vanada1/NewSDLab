@@ -3,25 +3,6 @@
 
 using namespace std;
 
-int  ReadInt()
-{
-	bool error;
-	int number;
-	do
-	{
-		error = false;
-		cin >> number;
-		if (cin.fail() || number < 1)
-		{
-			cout << "Wrong\n";
-			error = true;
-			cin.clear();
-			cin.ignore(80, '\n');
-		}
-	} while (error);
-	return number;
-}
-
 void OutputError()
 {
 	cout << "Error\n";

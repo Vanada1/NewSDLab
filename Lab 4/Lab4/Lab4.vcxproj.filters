@@ -33,7 +33,10 @@
     <ClCompile Include="MenuHashTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WorkWhithFiles.cpp">
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,13 +56,16 @@
     <ClInclude Include="MenuHashTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TempArray.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="MenuDictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WorkWuthFiles.h">
+    <ClInclude Include="PairKeyValue.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

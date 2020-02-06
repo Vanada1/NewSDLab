@@ -151,15 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp" />
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp" />
     <ClCompile Include="ALVTreeMenu.cpp" />
     <ClCompile Include="ALVTree.cpp" />
     <ClCompile Include="InputOutput.cpp" />
     <ClCompile Include="Lab6.cpp" />
     <ClCompile Include="R-BTree.cpp" />
     <ClCompile Include="R-BTreeMenu.cpp" />
-    <ClCompile Include="WorkWithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h" />
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h" />
     <ClInclude Include="ALVTreeMenu.h" />
     <ClInclude Include="ALVTreeNode.h" />
     <ClInclude Include="ALVTree.h" />
@@ -169,7 +172,6 @@
     <ClInclude Include="R-BTreeNode.h" />
     <ClInclude Include="R-BTree.h" />
     <ClInclude Include="R-BTreeMenu.h" />
-    <ClInclude Include="WorkWithFiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

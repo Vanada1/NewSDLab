@@ -1,8 +1,7 @@
 #include"Dictionary.h"
 #include "InputOutput.h"
-#include "TempArray.h"
+#include "PairKeyValue.h"
 #include "MenuDictionary.h"
-#include "WorkWuthFiles.h"
 #include <iostream>
 #include <ctime>
 

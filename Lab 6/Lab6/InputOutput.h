@@ -3,11 +3,11 @@
 #include<string>
 #include"R-BTree.h"
 #include "ALVTree.h"
+#include "../../CommonFuction/ReadInt.h"
 
 
 using namespace std;
 
-int  ReadInt();
 //TODO: naming(Done)
 void OutputError();
 void OutputNone();

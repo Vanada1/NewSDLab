@@ -1,6 +1,6 @@
 #pragma once
 #include "DynamicArray.h"
+#include"../../CommonFuction/ReadInt.h"
 
-int ReadInt();
 void OutputArray(DynamicArray&);
 void ShowResult(bool);

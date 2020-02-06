@@ -1,8 +1,8 @@
 #include <iostream>
-#include "ListFunc.h"
-#include"WorkWithFiles.h"
-#include "InputOutput.h"
 #include <ctime>
+#include "ListFunc.h"
+#include "InputOutput.h"
+#include "../../CommonFuction/WorkWithFiles.h"
 #define SWITCH 0
 
 using namespace std;
@@ -40,7 +40,7 @@ int main()
 		system("cls");
 		OutputList(list);
 		cout << "What do you want to do with the array?\n";
-		TextOutput();
+		TextOutput("menu.txt");
 		switch (ReadInt())
 		{
 			//TODO:rsdn(Done)

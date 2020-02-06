@@ -12,25 +12,6 @@ void SetColor(int text, int background)
 	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
 }
 
-int  ReadInt()
-{
-	bool error;
-	int number;
-	do
-	{
-		error = false;
-		cin >> number;
-		if (cin.fail())
-		{
-			cout << "Wrong\n";
-			error = true;
-			cin.clear();
-			cin.ignore(80, '\n');
-		}
-	} while (error);
-	return number;
-}
-
 void OutputError()
 {
 	cout << "Error\n";

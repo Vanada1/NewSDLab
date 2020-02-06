@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp" />
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp" />
     <ClCompile Include="BinaryMenu.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="InputOutput.cpp" />
@@ -158,9 +160,10 @@
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Treap.cpp" />
     <ClCompile Include="TreapMenu.cpp" />
-    <ClCompile Include="WorkWithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h" />
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h" />
     <ClInclude Include="BinaryMenu.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="BinaryTreeNode.h" />
@@ -170,7 +173,6 @@
     <ClInclude Include="Treap.h" />
     <ClInclude Include="TreapMenu.h" />
     <ClInclude Include="TreapNode.h" />
-    <ClInclude Include="WorkWithFiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

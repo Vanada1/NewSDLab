@@ -24,7 +24,10 @@
     <ClCompile Include="InputOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WorkWhithFiles.cpp">
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +41,10 @@
     <ClInclude Include="InputOutput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WorkWhithFiles.h">
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

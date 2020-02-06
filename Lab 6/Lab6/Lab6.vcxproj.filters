@@ -33,7 +33,10 @@
     <ClCompile Include="ALVTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WorkWithFiles.cpp">
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +68,10 @@
     <ClInclude Include="ALVTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WorkWithFiles.h">
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

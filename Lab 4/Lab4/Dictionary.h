@@ -1,7 +1,7 @@
 #pragma once
 
 #include "HashTable.h"
-#include "TempArray.h"
+#include "PairKeyValue.h"
 #include <string>
 
 struct Dictionary

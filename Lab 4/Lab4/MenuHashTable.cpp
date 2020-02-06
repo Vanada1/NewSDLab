@@ -1,8 +1,7 @@
 #include "HashTable.h"
 #include "InputOutput.h"
-#include "TempArray.h"
+#include "PairKeyValue.h"
 #include "MenuHashTable.h"
-#include "WorkWuthFiles.h"
 #include <iostream>
 #include <ctime>
 

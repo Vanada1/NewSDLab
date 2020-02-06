@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include "InputOutput.h"
-#include "WorkWhithFiles.h"
+#include "../../CommonFuction/WorkWithFiles.h"
 #include "Realisation.h"
 
 using namespace std;
@@ -21,7 +21,7 @@ int main()
 		system("cls");
 		OutputArray(array);
 		cout << "What do you want to do with the array?\n";
-		TextOutput();
+		TextOutput("menu.txt");
 		switch (ReadInt())
 		{
 			//TODO:скобочки(Done)

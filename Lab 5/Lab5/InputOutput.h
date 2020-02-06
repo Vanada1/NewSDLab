@@ -4,10 +4,10 @@
 #include"BinaryTreeNode.h"
 #include"TreapNode.h"
 #include"List.h"
+#include "../../CommonFuction/ReadInt.h"
 
 using namespace std;
 
-int  ReadInt();
 void ShowBinaryTree(BinaryTreeNode*, int);
 void ShowTreap(TreapNode*, int);
 void ShowList(List*);

@@ -151,17 +151,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp" />
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp" />
     <ClCompile Include="InputOutput.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ListFunc.cpp" />
-    <ClCompile Include="WorkWithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h" />
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h" />
     <ClInclude Include="ListFunc.h" />
     <ClInclude Include="InputOutput.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="WorkWithFiles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
