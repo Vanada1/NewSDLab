@@ -4,8 +4,6 @@
 void ALVTreeMenu()
 {
 	bool isEnd = false;
-	//TODO: Почему здесь?(Done)
-	//TODO: RSDN(Done)
 	ALVTree* tree = new ALVTree();
 	cout << "Enter the count of elemetns\t";
 	int number = ReadInt();
@@ -25,7 +23,6 @@ void ALVTreeMenu()
 		TextOutput("ALVTreeMenu.txt");
 		switch (ReadInt())
 		{
-			//TODO: RSDN(Done)
 			case 1:
 			{
 				cout << "Enter the number\n";

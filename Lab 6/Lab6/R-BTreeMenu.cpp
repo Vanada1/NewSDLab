@@ -12,8 +12,6 @@ void RBTreeMenu()
 {
 	srand(time(nullptr));
 	bool isEnd = false;
-	//TODO: Почему здесь?(Done)
-	//TODO: RSDN(Done)
 	RBTree* tree = new RBTree();
 	RBTreeNode* searchedElem = nullptr;
 	cout << "How many elements to create ";
@@ -35,7 +33,6 @@ void RBTreeMenu()
 		TextOutput("RedBlackTreeMenu.txt");
 		switch (ReadInt())
 		{
-			//TODO: RSDN(Done)
 			case 1:
 			{
 				cout << "Enter the number\n";

@@ -19,9 +19,9 @@ private:
 	ALVTreeNode* SearchMin(ALVTreeNode*);
 	ALVTreeNode* RemoveMin(ALVTreeNode*);
 
-	// support function
+	//TODO: naming
 	unsigned int Height(ALVTreeNode*);
-	// balance factor
+	//TODO: naming
 	int Bfactor(ALVTreeNode*);
 	void Fixheight(ALVTreeNode*);
 };

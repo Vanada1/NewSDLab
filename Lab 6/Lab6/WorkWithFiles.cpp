@@ -9,10 +9,10 @@ void TextOutput(string str)
 {
 	string line;
 
-	ifstream fil(str);
-	if (fil.is_open())
+	ifstream file(str);
+	if (file.is_open())
 	{
-		while (getline(fil, line))
+		while (getline(file, line))
 		{
 			cout << line << endl;
 		}
@@ -21,5 +21,5 @@ void TextOutput(string str)
 	{
 		cout << "Error: cannot open the file";
 	}
-	fil.close();
+	file.close();
 }

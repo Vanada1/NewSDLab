@@ -17,10 +17,8 @@ struct RBTree
 		Nil = new RBTreeNode();
 	}
 private:
-	//TODO: Почему не инкапсулированы повороты(Done)
 	void RotateLeft(RBTreeNode*);
 	void RotateRight(RBTreeNode*);
 	void InsertFixup(RBTreeNode*);
 	void DeleteFixup(RBTreeNode*);
-
 };

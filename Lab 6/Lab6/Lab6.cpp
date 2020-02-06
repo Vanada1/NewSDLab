@@ -10,7 +10,6 @@ using namespace std;
 int main()
 {
 	bool isEnd = false;
-	//TODO: Почему здесь?(Done)
 
 	while (!isEnd)
 	{
@@ -19,7 +18,6 @@ int main()
 		TextOutput("mainMenu.txt");
 		switch (ReadInt())
 		{
-			//TODO: RSDN(Done)
 			case 1:
 			{
 				RBTreeMenu();

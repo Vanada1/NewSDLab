@@ -12,12 +12,6 @@ void SetColor(int text, int background)
 	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
 }
 
-//void SetColor(int text, NodeColor background)
-//{
-//	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-//	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-//}
-
 int  ReadInt()
 {
 	bool error;
@@ -52,7 +46,6 @@ void OutputDone()
 	cout << "Done\n";
 }
 
-//TODO: RSDN(DOne)
 void  PrintTree(RBTreeNode* node, int level, RBTreeNode* nil)
 {
 	if (node && node != nil)
@@ -77,7 +70,6 @@ void ALVTreeShow(ALVTreeNode* node, int level)
 	if (node)
 	{
 		ALVTreeShow(node->Right, level + 1);
-		//TODO: RSDN(Done)
 		for (int i = 0; i < level; i++)
 		{
 			cout << "\t";

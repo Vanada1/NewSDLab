@@ -3,17 +3,18 @@
 void RBTree::RotateLeft(RBTreeNode* RotateElem)
 {
 	RBTreeNode* temp = RotateElem->Right;
-	//establish RotateElem->Right link
+
 	RotateElem->Right = temp->Left;
 	if (temp->Left != Nil)
 	{
 		temp->Left->Parent = RotateElem;
 	}
-	//establish temp->Parent link
+
 	if (temp != Nil)
 	{
 		temp->Parent = RotateElem->Parent;
 	}
+
 	if (RotateElem->Parent)
 	{
 		if (RotateElem == RotateElem->Parent->Left)
@@ -29,6 +30,7 @@ void RBTree::RotateLeft(RBTreeNode* RotateElem)
 	{
 		Root = temp;
 	}
+
 	temp->Left = RotateElem;
 	if (RotateElem != Nil)
 	{
@@ -62,7 +64,8 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 			RotateElem->Parent->Left = temp;
 		}
 	}
-	else {
+	else 
+	{
 		Root = temp;
 	}
 	temp->Right = RotateElem;
@@ -133,7 +136,6 @@ void RBTree::InsertFixup(RBTreeNode* node)
 
 bool RBTree::Insert(int data)
 {
-	//TODO: RSDN(DOne)
 	RBTreeNode* current = Root;
 	RBTreeNode* parent = nullptr;
 	while (current != Nil && current)
@@ -171,6 +173,7 @@ void RBTree::DeleteFixup(RBTreeNode* node)
 	{
 		if (node == node->Parent->Left)
 		{
+			//TODO: дубль?
 			RBTreeNode* temp = node->Parent->Right;
 			if (temp->Color == RED)
 			{
@@ -204,6 +207,7 @@ void RBTree::DeleteFixup(RBTreeNode* node)
 		// mirror 
 		else
 		{
+			//TODO: дубль?
 			RBTreeNode* temp = node->Parent->Left;
 			if (temp->Color == RED)
 			{
@@ -240,6 +244,7 @@ void RBTree::DeleteFixup(RBTreeNode* node)
 
 bool RBTree::DeleteElem(RBTreeNode* elem)
 {
+	//TODO: rsdn
 	RBTreeNode* temp, *deleteElem;
 
 	if (!elem || elem == Nil) return false;
@@ -310,9 +315,10 @@ bool RBTree::SearchElem(RBTreeNode*& elem, int data)
 			elem = current;
 			return true;
 		}
-		//TODO: Formatting
-		current = (data < current->Data) ? 
-			current->Left : current->Right;
+
+		current = (data < current->Data) 
+			? current->Left 
+			: current->Right;
 	}
 	elem = nullptr;
 	return false;
