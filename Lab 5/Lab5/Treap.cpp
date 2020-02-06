@@ -130,8 +130,10 @@ bool Treap::AddOptimized(int key, int priroity)
 
 TreapNode* Treap::RemoveUnoptimized(int key)
 {
-	//TODO: RSDN
-	TreapNode* left, *deleteElem, *right;
+	//TODO: RSDN(Done)
+	TreapNode* left;
+	TreapNode* right;
+	TreapNode* deleteElem;
 	Split(Root, key - 1, left, right);
 	Split(right, key, deleteElem, right);
 	delete deleteElem;
