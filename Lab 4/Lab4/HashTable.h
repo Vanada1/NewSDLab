@@ -11,7 +11,7 @@ public:
 
 	bool Insert(std::string, std::string);
 	bool Remove(std::string);
-	SupportArray* Search(std::string);
+	PairKeyValue* Search(std::string);
 	bool CreateHashTable(int);
 	int Count(int);
 	void DeleteHashTable();
@@ -19,6 +19,8 @@ public:
 	bool SetTableSize(int);
 	int HashFunc(std::string);
 private:
+	float _fillFactor = 0.8;
+	int _arrayIncrease = 2;
 	int _number = 19;
 	int _tableSize = 0;
 	int _countOfElement = 0;

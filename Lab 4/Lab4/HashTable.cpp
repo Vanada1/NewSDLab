@@ -29,7 +29,7 @@ bool HashTable::CreateHashTable(int number)
 	//Number = WriteInt();
 	if (_tableSize != 0)
 	{
-		_tableSize *= 2;
+		_tableSize *= _arrayIncrease;
 	}
 	else 
 	{ 
@@ -70,7 +70,7 @@ bool HashTable::Insert(std::string key, std::string value)
 		}
 	}
 	_countOfElement++;
-	if ((double)_countOfElement / _tableSize > 0.8)
+	if ((double)_countOfElement / _tableSize > _fillFactor)
 	{
 		if (Rehashing())
 		{
@@ -106,11 +106,11 @@ bool HashTable::DecisionCollision(std::string key, std::string value)
 	return true;
 }
 
-SupportArray* HashTable::Search(std::string key)
+PairKeyValue* HashTable::Search(std::string key)
 {
 	int index = HashFunc(key);
 	int i = 0;
-	SupportArray* arr = new SupportArray[Count(index)];
+	PairKeyValue* arr = new PairKeyValue[Count(index)];
 	Item* current = HashTable[index];
 	while (current != nullptr)
 	{
@@ -206,7 +206,7 @@ bool HashTable::Rehashing()
 {
 	int temp = _countOfElement;
 	int place = 0;
-	SupportArray* tempArray = new SupportArray[temp];
+	PairKeyValue* tempArray = new PairKeyValue[temp];
 	for (int i = 0; i < _tableSize; i++)
 	{
 		Item* current = HashTable[i];

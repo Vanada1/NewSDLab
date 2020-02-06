@@ -12,7 +12,7 @@ int MenuDictionary()
 {
 	srand(time(nullptr));
 	Dictionary* dictionary = new Dictionary;
-	SupportArray* temp;
+	PairKeyValue* temp;
 	//TODO: RSDN(Done)
 	//TODO: Почему здесь?(Done)
 	bool isEnd = false;
@@ -73,11 +73,11 @@ int MenuDictionary()
 				cin >> name;
 				cout << endl;
 				temp = dictionary->Find(name);
-				for (int i = 0; i < dictionary->Diction->CountElements; i++)
+				for (int i = 0; i < dictionary->InnerHashTable->CountElements; i++)
 				{
 					cout << temp[i].Value << "\t";
 				}
-				dictionary->Diction->CountElements = 0;
+				dictionary->InnerHashTable->CountElements = 0;
 				delete[] temp;
 				cout << endl;
 				break;
@@ -85,7 +85,7 @@ int MenuDictionary()
 			case 4:
 			{
 				system("cls");
-				PrintHashTable(dictionary->Diction);
+				PrintHashTable(dictionary->InnerHashTable);
 				break;
 			}
 			case 5:

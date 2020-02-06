@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-struct SupportArray
+struct PairKeyValue
 {
 	std::string Key;
 	std::string Value;

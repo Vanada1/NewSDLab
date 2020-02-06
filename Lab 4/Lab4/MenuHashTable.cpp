@@ -12,7 +12,7 @@ int MenuHashTable()
 {
 	srand(time(nullptr));
 	HashTable* hash = new HashTable;
-	SupportArray* temp;
+	PairKeyValue* temp;
 	//TODO: RSDN(Done)
 	//TODO: Почему здесь?(Done)
 	bool isEnd = false;

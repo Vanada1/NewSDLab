@@ -6,10 +6,10 @@
 
 struct Dictionary
 {
-	HashTable* Diction = new HashTable;
+	HashTable* InnerHashTable = new HashTable;
 
 	bool Insert(std::string, std::string);
-	SupportArray* Find(std::string);
+	PairKeyValue* Find(std::string);
 	bool Remove(std::string);
 	bool CreateDictionary(int);
 	void DeleteDictionary();

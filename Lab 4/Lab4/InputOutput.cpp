@@ -55,9 +55,9 @@ void PrintHashTable(HashTable* hashTable)
 
 void PrintDictionary(Dictionary* dictionary)
 {
-	for (int i = 0; i < dictionary->Diction->GetTableSize(); i++)
+	for (int i = 0; i < dictionary->InnerHashTable->GetTableSize(); i++)
 	{
-		Item* current = dictionary->Diction->HashTable[i];
+		Item* current = dictionary->InnerHashTable->HashTable[i];
 		if (current->Key == "")
 		{
 			continue;
@@ -69,7 +69,7 @@ void PrintDictionary(Dictionary* dictionary)
 			cout << "Book  " << current->Value << '\t';
 			current = current->Next;
 		}
-		cout << "count of items = " << dictionary->Diction->Count(i) << endl;
+		cout << "count of items = " << dictionary->InnerHashTable->Count(i) << endl;
 	}
 }
 
