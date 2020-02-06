@@ -9,7 +9,6 @@ using namespace std;
 int main()
 {
 	bool isEnd = false;
-	//TODO: Почему здесь?(Done)
 
 	while (!isEnd)
 	{

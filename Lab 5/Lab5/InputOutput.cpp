@@ -41,7 +41,6 @@ void ShowBinaryTree(BinaryTreeNode* node, int level)
 	if (node)
 	{
 		ShowBinaryTree(node->Right, level + 1);
-		//TODO: RSDN(Done)
 		for (int i = 0; i < level; i++)
 		{
 			cout << "	";
@@ -75,7 +74,6 @@ void ShowTreap(TreapNode* node, int level)
 	if (node)
 	{
 		ShowTreap(node->Right, level + 1);
-		//TODO: RSDN(Done)
 		for (int i = 0; i < level; i++)
 		{
 			cout << "	";

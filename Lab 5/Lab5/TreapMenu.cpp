@@ -5,10 +5,8 @@
 void TreapMenu()
 {
 	srand(time(nullptr));
-	//TODO: RSDN(Done)
 	Treap* tree = new Treap();
 	bool isEnd = false;
-	//TODO: Почему здесь?(Done)
 	cout << "Enter the count of elemetns\t";
 	tree->CreateTree(ReadInt());
 	cout << endl;
@@ -22,7 +20,6 @@ void TreapMenu()
 		TextOutput("TreapMemu.txt");
 		switch (ReadInt())
 		{
-			//TODO: RSDN(Done)
 			case 1:
 			{
 				cout << "Enter the number\n";

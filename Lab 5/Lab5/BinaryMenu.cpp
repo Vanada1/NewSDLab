@@ -4,8 +4,6 @@
 void BinaryTreeMenu()
 {
 	bool isEnd = false;
-	//TODO: Почему здесь?(Done)
-	//TODO: RSDN(Done)
 	BinaryTree* tree = new BinaryTree();
 	cout << "Enter the count of elemetns\t";
 	tree->CreateTree(ReadInt());
@@ -20,7 +18,6 @@ void BinaryTreeMenu()
 		TextOutput("BinaryMenu.txt");
 		switch (ReadInt())
 		{
-			//TODO: RSDN(Done)
 			case 1:
 			{
 				cout << "Enter the number\n";
