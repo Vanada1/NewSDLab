@@ -12,21 +12,6 @@ void SetColor(int text, int background)
 	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
 }
 
-void OutputError()
-{
-	cout << "Error\n";
-}
-
-void OutputNone()
-{
-	cout << "None\n";
-}
-
-void OutputDone()
-{
-	cout << "Done\n";
-}
-
 void  PrintTree(RBTreeNode* node, int level, RBTreeNode* nil)
 {
 	if (node && node != nil)

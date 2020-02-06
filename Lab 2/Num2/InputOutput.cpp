@@ -27,16 +27,6 @@ void OutputListBack(List* lst)
 	cout << "Size of list: " << lst->Size << endl;
 }
 
-void OutputError()
-{
-	cout << "Error\n";
-}
-
-void OutputDone()
-{
-	cout << "Done\n";
-}
-
 void OutputTime(long double time, string word)
 {
 	cout << "Time of processing for " << word << setprecision(12)

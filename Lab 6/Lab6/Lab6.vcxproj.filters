@@ -39,6 +39,9 @@
     <ClCompile Include="..\..\CommonFuction\ReadInt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\CommonFuction\OutputAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="R-BTreeNode.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\CommonFuction\ReadInt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonFuction\OutputAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,16 +3,6 @@
 
 using namespace std;
 
-void OutputError()
-{
-	cout << "Error\n";
-}
-
-void OutputNone()
-{
-	cout << "None\n";
-}
-
 void RehashingDone()
 {
 	cout << "Rehashing done\n";
@@ -59,7 +49,3 @@ void ShowResult(string value)
 	cout << value << endl;
 }
 
-void OutputDone()
-{
-	cout << "Done\n";
-}

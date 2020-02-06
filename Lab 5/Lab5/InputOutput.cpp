@@ -1,21 +1,6 @@
 #include <iostream>
 #include"InputOutput.h"
 
-void OutputError()
-{
-	cout << "Error\n";
-}
-
-void OutputNone()
-{
-	cout << "None\n";
-}
-
-void OutputDone()
-{
-	cout << "Done\n";
-}
-
 void ShowBinaryTree(BinaryTreeNode* node, int level)
 {
 	if (node)

@@ -51,6 +51,9 @@
     <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\CommonFuction\OutputAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QueueTwoStack.h">
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonFuction\OutputAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

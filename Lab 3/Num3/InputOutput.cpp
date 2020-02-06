@@ -48,10 +48,6 @@ void ShowRingBuf(int* array, int front, int tail, int capacity)
 	}
 }
 
-void OutputError()
-{
-	cout << "Error\n";
-}
 //TODO: Naming(Done)
 void ShowFreeSpace(int compasity, int size)
 {

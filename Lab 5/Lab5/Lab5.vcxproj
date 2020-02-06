@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CommonFuction\OutputAction.cpp" />
     <ClCompile Include="..\..\CommonFuction\ReadInt.cpp" />
     <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp" />
     <ClCompile Include="BinaryMenu.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="TreapMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CommonFuction\OutputAction.h" />
     <ClInclude Include="..\..\CommonFuction\ReadInt.h" />
     <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h" />
     <ClInclude Include="BinaryMenu.h" />

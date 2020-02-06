@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CommonFuction\OutputAction.cpp" />
     <ClCompile Include="..\..\CommonFuction\ReadInt.cpp" />
     <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp" />
     <ClCompile Include="InputOutput.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="ListFunc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CommonFuction\OutputAction.h" />
     <ClInclude Include="..\..\CommonFuction\ReadInt.h" />
     <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h" />
     <ClInclude Include="ListFunc.h" />
