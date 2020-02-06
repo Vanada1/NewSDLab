@@ -142,7 +142,7 @@ int main()
 			{
 				cout << "What number do you want to find?\n";
 				int number = ReadInt();
-				int index = NULL;
+				int index = 0;
 				if (LineSearch(list, number, index))
 				{
 					cout << "The numder " << number << " in " << index << " cell\n";
