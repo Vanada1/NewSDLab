@@ -2,4 +2,4 @@
 
 #include "../../CommonFuction/WorkWithFiles.h"
 
-void MenuQueueRing();
+int MenuHashTable();

@@ -151,6 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CommonFuction\OutputAction.cpp" />
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp" />
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp" />
     <ClCompile Include="InputOutput.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuQueueRing.cpp" />
@@ -163,13 +166,15 @@
     <ClCompile Include="StackMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CommonFuction\OutputAction.h" />
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h" />
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h" />
     <ClInclude Include="InputOutput.h" />
     <ClInclude Include="MenuQueueRing.h" />
     <ClInclude Include="MenuQueueStack.h" />
     <ClInclude Include="MenuRing.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="QueueRing.h" />
-    <ClInclude Include="RingBuf.h" />
     <ClInclude Include="RingBuffer.h" />
     <ClInclude Include="QueueTwoStack.h" />
     <ClInclude Include="Stack.h" />

@@ -1,16 +1,11 @@
 #pragma once
 
-#include<string>
-#include"Hash.h"
+#include"HashTable.h"
 #include"Dictionary.h"
+#include "../../CommonFuction/ReadInt.h"
+#include "../../CommonFuction/OutputAction.h"
 
-void Error();
-std::string WriteString();
-int  WriteInt();
-void TextOutput(std::string);
-void PrintHashTable(Hash*);
+void PrintHashTable(HashTable*);
 void PrintDictionary(Dictionary*);
 void ShowResult(std::string);
-void None();
 void RehashingDone();
-void Done();

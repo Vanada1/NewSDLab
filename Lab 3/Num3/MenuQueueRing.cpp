@@ -9,42 +9,55 @@ void MenuQueueRing()
 {
 	QueueRing struc;
 	struc.CreateQueue();
-	bool ending = true;
-	int control = 0;
-	int number = 0;
+	//TODO: naming(Done)
+	bool isEnd = false;
 
-	while (ending)
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
-		ShowRingBuf(struc.Buffer->Ring);
+		ShowRingBuf(struc.Buffer->Array, struc.Buffer->Front,
+			struc.Buffer->Tail, struc.Buffer->Capacity);
 		TextOutput("QueueRingBuff_menu.txt");
-		control = Write();
-		switch (control)
+		 
+		switch (ReadInt())
 		{
-		case 1:
-			cout << "Enter the element\n";
-			number = Write();
-			struc.Enqueue(number);
-			cout << "Added\n";
-			break;
-		case 2:
-			number = struc.Dequeue();
-			OutputNumberRing(number);
-			break;
-		case 3:
-			struc.Delete();
-			cout << "Ring deleted\n";
-			break;
-		case 4:
-			struc.Resize();
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			cout << "Wrong\n";
-			break;
+			//TODO: {}(Done)
+			case 1:
+			{
+				cout << "Enter the element\n";
+				int number = ReadInt();
+				struc.Enqueue(number);
+				cout << "Added\n";
+				break;
+			}
+			case 2:
+			{
+				int number = struc.Dequeue();
+				OutputNumberRing(number);
+				break;
+			}
+			case 3:
+			{
+				struc.Delete();
+				cout << "Ring deleted\n";
+				break;
+			}
+			case 4:
+			{
+				struc.Resize();
+				break;
+			}
+			case 9:
+			{
+				isEnd = true;
+				break;
+			}
+			default:
+			{
+				cout << "Wrong\n";
+				break;
+			}
 		}
 	}
 	struc.Delete();

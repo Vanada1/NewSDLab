@@ -151,21 +151,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CommonFuction\OutputAction.cpp" />
+    <ClCompile Include="..\..\CommonFuction\ReadInt.cpp" />
+    <ClCompile Include="..\..\CommonFuction\WorkWithFiles.cpp" />
     <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="InputOutput.cpp" />
-    <ClCompile Include="menuDictionary.cpp" />
-    <ClCompile Include="Hash.cpp" />
-    <ClCompile Include="menuHash.cpp" />
+    <ClCompile Include="MenuDictionary.cpp" />
+    <ClCompile Include="HashTable.cpp" />
+    <ClCompile Include="MenuHashTable.cpp" />
     <ClCompile Include="MenuMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CommonFuction\OutputAction.h" />
+    <ClInclude Include="..\..\CommonFuction\ReadInt.h" />
+    <ClInclude Include="..\..\CommonFuction\WorkWithFiles.h" />
     <ClInclude Include="Dictionary.h" />
-    <ClInclude Include="Hash.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="InputOutput.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="menuDictionary.h" />
-    <ClInclude Include="menuHash.h" />
-    <ClInclude Include="TempArray.h" />
+    <ClInclude Include="MenuDictionary.h" />
+    <ClInclude Include="MenuHashTable.h" />
+    <ClInclude Include="PairKeyValue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

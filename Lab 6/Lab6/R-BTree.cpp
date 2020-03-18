@@ -3,17 +3,18 @@
 void RBTree::RotateLeft(RBTreeNode* RotateElem)
 {
 	RBTreeNode* temp = RotateElem->Right;
-	//establish RotateElem->Right link
+
 	RotateElem->Right = temp->Left;
 	if (temp->Left != Nil)
 	{
 		temp->Left->Parent = RotateElem;
 	}
-	//establish temp->Parent link
+
 	if (temp != Nil)
 	{
 		temp->Parent = RotateElem->Parent;
 	}
+
 	if (RotateElem->Parent)
 	{
 		if (RotateElem == RotateElem->Parent->Left)
@@ -29,6 +30,7 @@ void RBTree::RotateLeft(RBTreeNode* RotateElem)
 	{
 		Root = temp;
 	}
+
 	temp->Left = RotateElem;
 	if (RotateElem != Nil)
 	{
@@ -40,27 +42,33 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 {
 
 	RBTreeNode* temp = RotateElem->Left;
-	//establish RotateElem->Left link
 	RotateElem->Left = temp->Right;
 	if (temp->Right != Nil)
 	{
 		temp->Right->Parent = RotateElem;
 	}
-	//establish temp->Parent link
+
 	if (temp != Nil)
 	{
 		temp->Parent = RotateElem->Parent;
 	}
+
 	if (RotateElem->Parent) 
 	{
 		if (RotateElem == RotateElem->Parent->Right)
+		{
 			RotateElem->Parent->Right = temp;
+		}
 		else
+		{
 			RotateElem->Parent->Left = temp;
+		}
 	}
-	else {
+	else 
+	{
 		Root = temp;
 	}
+
 	temp->Right = RotateElem;
 	if (RotateElem != Nil)
 	{
@@ -70,21 +78,18 @@ void RBTree::RotateRight(RBTreeNode* RotateElem)
 
 void RBTree::InsertFixup(RBTreeNode* node)
 {
-	// check red-black properties
 	while (node != Root && node->Parent->Color == RED)
 	{
 		if (node->Parent == node->Parent->Parent->Left)
 		{
-			RBTreeNode* temp = node->Parent->Parent->Right;
-			// if uncle is RED
-			if (temp->Color == RED)
+			RBTreeNode* uncle = node->Parent->Parent->Right;
+			if (uncle->Color == RED)
 			{
 				node->Parent->Color = BLACK;
-				temp->Color = BLACK;
+				uncle->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				node = node->Parent->Parent;
 			}
-			// if uncle is BLACK
 			else
 			{
 				if (node == node->Parent->Right)
@@ -92,25 +97,22 @@ void RBTree::InsertFixup(RBTreeNode* node)
 					node = node->Parent;
 					RotateLeft(node);
 				}
-				// recolor and rotate
 				node->Parent->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				RotateRight(node->Parent->Parent);
 			}
 		}
+		// mirror
 		else
 		{
-			// mirror image of above code 
-			RBTreeNode* temp = node->Parent->Parent->Left;
-			// if uncle is RED
-			if (temp->Color == RED)
+			RBTreeNode* uncle = node->Parent->Parent->Left;
+			if (uncle->Color == RED)
 			{
 				node->Parent->Color = BLACK;
-				temp->Color = BLACK;
+				uncle->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				node = node->Parent->Parent;
 			}
-			// if uncle is BLACK
 			else
 			{
 				if (node == node->Parent->Left)
@@ -118,7 +120,6 @@ void RBTree::InsertFixup(RBTreeNode* node)
 					node = node->Parent;
 					RotateRight(node);
 				}
-				// recolor and rotate
 				node->Parent->Color = BLACK;
 				node->Parent->Parent->Color = RED;
 				RotateLeft(node->Parent->Parent);
@@ -130,10 +131,8 @@ void RBTree::InsertFixup(RBTreeNode* node)
 
 bool RBTree::Insert(int data)
 {
-	RBTreeNode* current, * parent, * insertedElem;
-
-	current = Root;
-	parent = nullptr;
+	RBTreeNode* current = Root;
+	RBTreeNode* parent = nullptr;
 	while (current != Nil && current)
 	{
 		if (data == current->Data) return false;
@@ -141,9 +140,8 @@ bool RBTree::Insert(int data)
 		current = (data < current->Data) ?
 			current->Left : current->Right;
 	}
-	insertedElem = new RBTreeNode(data, RED, parent);
+	RBTreeNode* insertedElem = new RBTreeNode(data, RED, parent);
 	insertedElem->Left = insertedElem->Right = Nil;
-	// insert node in the tree
 	if (parent)
 	{
 		if (data < parent->Data)
@@ -238,7 +236,9 @@ void RBTree::DeleteFixup(RBTreeNode* node)
 
 bool RBTree::DeleteElem(RBTreeNode* elem)
 {
-	RBTreeNode* temp, *deleteElem;
+	//TODO: rsdn(Done)
+	RBTreeNode* temp;
+	RBTreeNode* deleteElem;
 
 	if (!elem || elem == Nil) return false;
 
@@ -308,8 +308,10 @@ bool RBTree::SearchElem(RBTreeNode*& elem, int data)
 			elem = current;
 			return true;
 		}
-		current = (data < current->Data) ? 
-			current->Left : current->Right;
+
+		current = (data < current->Data) 
+			? current->Left 
+			: current->Right;
 	}
 	elem = nullptr;
 	return false;

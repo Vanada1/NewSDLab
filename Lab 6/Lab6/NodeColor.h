@@ -1,3 +1,7 @@
 #pragma once
 
-enum NodeColor { RED, BLACK };
+enum NodeColor 
+{ 
+	RED,
+	BLACK
+};

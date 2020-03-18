@@ -2,10 +2,10 @@
 
 void Treap::CreateTree(int quantity)
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 	for (int i = 0; i < quantity; i++)
 	{
-		AddElementOA(rand() % 100, rand() % 100);
+		AddOptimized(rand() % 100, rand() % 100);
 	}
 }
 
@@ -77,9 +77,10 @@ TreapNode* Treap::Merge(TreapNode* left, TreapNode* right)
 	return right;
 }
 
-TreapNode* Treap::AddElementUA(int key, int priority)
+TreapNode* Treap::AddUnoptimized(int key, int priority)
 {
-	TreapNode* left = nullptr, *right = nullptr;
+	TreapNode* left = nullptr;
+	TreapNode* right = nullptr;
 	Split(Root, key, left, right);
 	TreapNode* inserted = new TreapNode();
 	inserted->Key = key;
@@ -88,7 +89,7 @@ TreapNode* Treap::AddElementUA(int key, int priority)
 	
 }
 
-bool Treap::AddElementOA(int key, int priroity)
+bool Treap::AddOptimized(int key, int priroity)
 {
 	TreapNode* current = Root;
 	while (current != nullptr && current->Priority > priroity)
@@ -96,11 +97,13 @@ bool Treap::AddElementOA(int key, int priroity)
 		if (current->Key > key)
 		{
 			if (current->Left == nullptr) break;
+
 			current = current->Left;
 		}
 		else
 		{
 			if (current->Right == nullptr) break;
+
 			current = current->Right;
 		}
 	}
@@ -125,16 +128,19 @@ bool Treap::AddElementOA(int key, int priroity)
 	return true;
 }
 
-TreapNode* Treap::RemoveElementUA(int key)
+TreapNode* Treap::RemoveUnoptimized(int key)
 {
-	TreapNode* left, *deleteElem, *right;
+	//TODO: RSDN(Done)
+	TreapNode* left;
+	TreapNode* right;
+	TreapNode* deleteElem;
 	Split(Root, key - 1, left, right);
 	Split(right, key, deleteElem, right);
 	delete deleteElem;
 	return Merge(left, right);
 }
 
-bool Treap::RemoveElementOA(int key)
+bool Treap::RemoveOptimized(int key)
 {
 	if (Root == nullptr)
 	{
@@ -147,12 +153,14 @@ bool Treap::RemoveElementOA(int key)
 		{
 			if (current->Left == nullptr || 
 				current->Left->Key == key) break;
+
 			current = current->Left;
 		}
 		else
 		{
 			if (current->Right == nullptr ||
 				current->Right->Key == key) break;
+
 			current = current->Right;
 		}
 	}

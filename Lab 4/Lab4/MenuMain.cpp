@@ -1,32 +1,38 @@
 #include <iostream>
 #include "InputOutput.h"
-#include "menuDictionary.h"
-#include "menuHash.h"
+#include "MenuDictionary.h"
+#include "MenuHashTable.h"
+#include "../../CommonFuction/WorkWithFiles.h"
 
 using namespace std;
 
 int main()
 {
-	int control = 0;
-	bool ending = true;
-	while (ending)
+	//TODO: Почему здесь?(Done)
+	bool isEnd = false;
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
 		TextOutput("main.txt");
-		control = WriteInt();
-		switch (control)
+		switch (ReadInt())
 		{
-		case 1:
-			MenuDictionary();
-			break;
-
-		case 2:
-			MenuHash();
-			break;
-		case 9:
-			ending = false;
-			break;
+			//TODO: RSDN(Done)
+			case 1:
+			{
+				MenuDictionary();
+				break;
+			}
+			case 2:
+			{
+				MenuHashTable();
+				break;
+			}
+			case 9:
+			{
+				isEnd = true;
+				break;
+			}
 		}
 	}
 }

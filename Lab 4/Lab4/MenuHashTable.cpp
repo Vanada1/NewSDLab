@@ -1,69 +1,76 @@
-#include "Hash.h"
+#include "HashTable.h"
 #include "InputOutput.h"
-#include "TempArray.h"
-#include "menuHash.h"
+#include "PairKeyValue.h"
+#include "MenuHashTable.h"
 #include <iostream>
 #include <ctime>
 
 using namespace std;
 
-int MenuHash()
+int MenuHashTable()
 {
-	srand(time(NULL));
-	Hash* hash = new Hash;
-	TempArray* temp;
-	string name, book;
-	int control = 0;
-	int number;
-	bool ending = true;
-	int size;
+	srand(time(nullptr));
+	HashTable* hash = new HashTable;
+	PairKeyValue* temp;
+	//TODO: RSDN(Done)
+	//TODO: Почему здесь?(Done)
+	bool isEnd = false;
 	cout << "Enter the size for table ";
 	cout << endl;
-	hash->CreateHashTable(WriteInt());
+	hash->CreateHashTable(ReadInt());
 	cout << "Done\n";
-	while (ending)
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
 		PrintHashTable(hash);
 		TextOutput("menuHash.txt");
-		control = WriteInt();
-		switch (control)
+		switch (ReadInt())
 		{
+			//TODO: RSDN(Done)
 		case 1:
+		{
 			cout << "Enter Author name ";
-			name = WriteString();
+			string name;
+			string book;
+			cin >> name;
 			cout << endl;
 
 			cout << "Enter Book name ";
-			book = WriteString();
+			cin >> book;
 			cout << endl;
 			if (hash->Insert(name, book))
 			{
-				Done();
+				OutputDone();
 			}
 			else
 			{
-				Error();
+				OutputError();
 			}
 			break;
+		}
 
 		case 2:
+		{
 			cout << "Enter Author name to delete all book ";
-			name = WriteString();
+			string name;
+			cin >> name;
 			cout << endl;
 			if (hash->Remove(name))
 			{
-				Done();
+				OutputDone();
 			}
 			else
 			{
-				Error;
+				OutputError;
 			}
 			break;
+		}
 		case 3:
+		{
 			cout << "Enter Author name to find all his books ";
-			name = WriteString();
+			string name;
+			cin >> name;
 			cout << endl;
 			temp = hash->Search(name);
 			for (int i = 0; i < hash->CountElements; i++)
@@ -74,24 +81,29 @@ int MenuHash()
 			delete[] temp;
 			cout << endl;
 			break;
+		}
 		case 4:
+		{
 			cout << "Enter the number ";
-			number = WriteInt();
+			int number = ReadInt();
 			cout << endl;
 			for (int i = 0; i < number; i++)
 			{
-				if (!hash->Insert(to_string(rand() % 100), to_string(rand() % 100)))
-				{
-					Error;
-					i--;
-				}
+				//TODO: RSDN(Done)
+				hash->Insert(to_string(rand() % 100),
+					to_string(rand() % 100));
 			}
 			break;
+		}
 		case 9:
-			ending = false;
+		{
+			isEnd = true;
 			break;
+		}
 		default:
+		{
 			break;
+		}
 		}
 	}
 	hash->DeleteHashTable();

@@ -1,47 +1,43 @@
 #include "RingBuffer.h"
 #include"InputOutput.h"
 
-#define BUF 5
-
 bool IsNothing(int front, int tail)
 {
-	if (front == -1 && tail == -1) return true;
-	else return false;
+	return (front == -1 && tail == -1);
 }
 
 void RingBuffer::Resize()
 {
-	if (IsNotDelete && Ring.Size != 0)
+	if (IsNotDelete && Size != 0)
 	{
-		int* temp = new int[Ring.Size];
-		for (int i = 0; i < Ring.Size; i++)
+		int* temp = new int[Size];
+		for (int i = 0; i < Size; i++)
 		{
-			temp[i] = Ring.Array[(Ring.Front + i) % Ring.Compasity];
+			temp[i] = Array[(Front + i) % Capacity];
 		}
-		delete[] Ring.Array;
-		Ring.Compasity += BUF;
-		Ring.Array = new int[Ring.Compasity];
-		for (int i = 0; i < Ring.Size; i++)
+		delete[] Array;
+		Capacity += BUFFER;
+		Array = new int[Capacity];
+		for (int i = 0; i < Size; i++)
 		{
-			Ring.Array[i] = temp[i];
-			Ring.Tail = i;
+			Array[i] = temp[i];
+			Tail = i;
 		}
-		Ring.Front = 0;
+		Front = 0;
 		delete[] temp;
 	}
 	else
 	{
-		Error();
+		OutputError();
 	}
 }
 
-void RingBuffer::CreateBuffer()
+//TODO: input param(Done)
+void RingBuffer::CreateBuffer(int buffer)
 {
-	Ring.Compasity = BUF;
-	Ring.Array = new int[Ring.Compasity];
-	Ring.Front = -1;
-	Ring.Tail = -1;
-	Ring.Size = 0;
+	Capacity = buffer;
+	Array = new int[Capacity];
+	//TODO: вынести(Done)
 	IsNotDelete = true;
 }
 
@@ -49,39 +45,42 @@ void RingBuffer::AddElement(int number)
 {
 	if (!IsNotDelete)
 	{
-		CreateBuffer();
+		CreateBuffer(BUFFER);
 	}
-	if ((Ring.Tail + 1) % Ring.Compasity == Ring.Front)
+	//TODO: дубль(Done)
+	if (CalculationFunction(Tail,Capacity) == Front)
 	{
 		OutputNumberRing(GetElement());
 	}
-	if (Ring.Front == -1)
+	if (Front == -1)
 	{
-		Ring.Front = 0;
+		Front = 0;
 	}
-	Ring.Tail = (Ring.Tail + 1) % Ring.Compasity;
-	Ring.Array[Ring.Tail] = number;
-	Ring.Size++;
+	//TODO: дубль(Done)
+	Tail = CalculationFunction(Tail, Capacity);
+	Array[Tail] = number;
+	Size++;
 }
 
 int RingBuffer::GetElement()
 {
-	if (IsNothing(Ring.Front, Ring.Tail))
+	if (IsNothing(Front, Tail))
 	{
-		Error();
+		OutputError();
 		return -1;
 	}
-	int temp = Ring.Array[Ring.Front];
-	if (Ring.Front == Ring.Tail)
+	int temp = Array[Front];
+	if (Front == Tail)
 	{
-		Ring.Front = -1;
-		Ring.Tail = -1;
+		Front = -1;
+		Tail = -1;
 	}
 	else
 	{
-		Ring.Front = (Ring.Front + 1) % Ring.Compasity;
+		//TODO: дубль
+		Front = (Front + 1) % Capacity;
 	}
-	Ring.Size--;
+	Size--;
 	return temp;
 }
 
@@ -89,9 +88,14 @@ void RingBuffer::DeleteRingBuf()
 {
 	if (IsNotDelete)
 	{
-		delete[] Ring.Array;
-		Ring.Front = -1;
-		Ring.Tail = -1;
+		delete[] Array;
+		Front = -1;
+		Tail = -1;
 		IsNotDelete = false;
 	}
+}
+
+int RingBuffer::CalculationFunction(int tail, int capacity)
+{
+	return (tail + 1) % capacity;
 }

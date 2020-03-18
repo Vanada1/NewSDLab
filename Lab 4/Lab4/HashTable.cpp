@@ -1,8 +1,8 @@
-#include "Hash.h"
-#include "TempArray.h"
+#include "HashTable.h"
+#include "PairKeyValue.h"
 
 
-int Hash::Hashing(std::string key)
+int HashTable::HashFunc(std::string key)
 {
 	long unsigned int hash = 0;
 	for (int i = 0; i < key.length(); i++)
@@ -13,7 +13,7 @@ int Hash::Hashing(std::string key)
 	return hash;
 }
 
-bool Hash::SetTableSize(int number)
+bool HashTable::SetTableSize(int number)
 {
 	_tableSize = number;
 	
@@ -24,12 +24,12 @@ bool Hash::SetTableSize(int number)
 	return true;
 }
 
-bool Hash::CreateHashTable(int number)
+bool HashTable::CreateHashTable(int number)
 {
 	//Number = WriteInt();
 	if (_tableSize != 0)
 	{
-		_tableSize *= 2;
+		_tableSize *= _arrayIncrease;
 	}
 	else 
 	{ 
@@ -49,9 +49,9 @@ bool Hash::CreateHashTable(int number)
 	return true;
 }
 
-bool Hash::Insert(std::string key, std::string value)
+bool HashTable::Insert(std::string key, std::string value)
 {
-	int index = Hashing(key);
+	int index = HashFunc(key);
 
 	if (HashTable[index]->Key == "")
 	{
@@ -70,7 +70,7 @@ bool Hash::Insert(std::string key, std::string value)
 		}
 	}
 	_countOfElement++;
-	if ((double)_countOfElement / _tableSize > 0.8)
+	if ((double)_countOfElement / _tableSize > _fillFactor)
 	{
 		if (Rehashing())
 		{
@@ -84,9 +84,9 @@ bool Hash::Insert(std::string key, std::string value)
 	return true;
 }
 
-bool Hash::DecisionCollision(std::string key, std::string value)
+bool HashTable::DecisionCollision(std::string key, std::string value)
 {
-	int index = Hashing(key);
+	int index = HashFunc(key);
 	Item* current = HashTable[index];
 	Item* newElement = new Item;
 	newElement->Key = key;
@@ -106,11 +106,11 @@ bool Hash::DecisionCollision(std::string key, std::string value)
 	return true;
 }
 
-TempArray* Hash::Search(std::string key)
+PairKeyValue* HashTable::Search(std::string key)
 {
-	int index = Hashing(key);
+	int index = HashFunc(key);
 	int i = 0;
-	TempArray* arr = new TempArray[Count(index)];
+	PairKeyValue* arr = new PairKeyValue[Count(index)];
 	Item* current = HashTable[index];
 	while (current != nullptr)
 	{
@@ -126,9 +126,9 @@ TempArray* Hash::Search(std::string key)
 	return arr;
 }
 
-bool Hash::Remove(std::string key)
+bool HashTable::Remove(std::string key)
 {
-	int  index = Hashing(key);
+	int  index = HashFunc(key);
 	Item* current = HashTable[index];
 	if (Count(index) == 1 && HashTable[index]->Key == key)
 	{
@@ -168,7 +168,7 @@ bool Hash::Remove(std::string key)
 	return true;
 }
 
-int Hash::Count(int index)
+int HashTable::Count(int index)
 {
 	if (HashTable[index]->Key == "")
 	{
@@ -186,7 +186,7 @@ int Hash::Count(int index)
 	return number;
 }
 
-void Hash::DeleteHashTable()
+void HashTable::DeleteHashTable()
 {
 	for (int i = 0; i < _tableSize; i++)
 	{
@@ -202,11 +202,11 @@ void Hash::DeleteHashTable()
 	delete HashTable;
 }
 
-bool Hash::Rehashing()
+bool HashTable::Rehashing()
 {
 	int temp = _countOfElement;
 	int place = 0;
-	TempArray* tempArray = new TempArray[temp];
+	PairKeyValue* tempArray = new PairKeyValue[temp];
 	for (int i = 0; i < _tableSize; i++)
 	{
 		Item* current = HashTable[i];
@@ -238,7 +238,7 @@ bool Hash::Rehashing()
 	
 }
 
-int Hash::GetTableSize()
+int HashTable::GetTableSize()
 {
 	return _tableSize;
 }

@@ -2,7 +2,7 @@
 
 void BinaryTree::CreateTree(int quantity)
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 	for (int i = 0; i < quantity; i++)
 	{
 		AddElement(rand() % 100);

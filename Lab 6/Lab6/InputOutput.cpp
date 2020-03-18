@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <windows.h>
 #include <conio.h> 
 #include"InputOutput.h"
@@ -13,70 +12,11 @@ void SetColor(int text, int background)
 	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
 }
 
-//void SetColor(int text, NodeColor background)
-//{
-//	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-//	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-//}
-
-int  WriteInt()
+void  PrintTree(RBTreeNode* node, int level, RBTreeNode* nil)
 {
-	bool error;
-	int number;
-	do
+	if (node && node != nil)
 	{
-		error = false;
-		cin >> number;
-		if (cin.fail())
-		{
-			cout << "Wrong\n";
-			error = true;
-			cin.clear();
-			cin.ignore(80, '\n');
-		}
-	} while (error);
-	return number;
-}
-
-void Error()
-{
-	cout << "Error\n";
-}
-
-void None()
-{
-	cout << "None\n";
-}
-
-void TextOutput(string str)
-{
-	string line;
-
-	ifstream fil(str);
-	if (fil.is_open())
-	{
-		while (getline(fil, line))
-		{
-			cout << line << endl;
-		}
-	}
-	else
-	{
-		cout << "Error: cannot open the file";
-	}
-	fil.close();
-}
-
-void Done()
-{
-	cout << "Done\n";
-}
-
-void  PrintTree(RBTreeNode* node, int level, RBTreeNode* Nil)
-{
-	if (node && node != Nil)
-	{
-		PrintTree(node->Right, level + 1, Nil);
+		PrintTree(node->Right, level + 1, nil);
 		for (int i = 0; i < level; i++) cout << "   ";
 		if (node->Color == RED)
 		{
@@ -87,7 +27,7 @@ void  PrintTree(RBTreeNode* node, int level, RBTreeNode* Nil)
 			SetColor(Cyan, 0);
 		}
 		cout << node->Data << endl;
-		PrintTree(node->Left, level + 1, Nil);
+		PrintTree(node->Left, level + 1, nil);
 	}
 }
 
@@ -96,8 +36,14 @@ void ALVTreeShow(ALVTreeNode* node, int level)
 	if (node)
 	{
 		ALVTreeShow(node->Right, level + 1);
-		for (int i = 0; i < level; i++) cout << "\t";
-		for (int i = 0; i < level; i++) cout << "   ";
+		for (int i = 0; i < level; i++)
+		{
+			cout << "\t";
+		}
+		for (int i = 0; i < level; i++)
+		{
+			cout << "   ";
+		}
 		cout << node->Data << endl;
 		ALVTreeShow(node->Left, level + 1);
 	}

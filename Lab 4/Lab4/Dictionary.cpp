@@ -2,24 +2,24 @@
 
 bool Dictionary::CreateDictionary(int number)
 {
-	return Diction->CreateHashTable(number);
+	return InnerHashTable->CreateHashTable(number);
 }
 
 void Dictionary::DeleteDictionary()
 {
-	Diction->DeleteHashTable();
-	delete Diction;
+	InnerHashTable->DeleteHashTable();
+	delete InnerHashTable;
 }
 
-TempArray* Dictionary::Find(std::string key)
+PairKeyValue* Dictionary::Find(std::string key)
 {
-	return Diction->Search(key);
+	return InnerHashTable->Search(key);
 }
 
 bool Dictionary::Insert(std::string key, std::string value)
 {
-	int index = Diction->Hashing(key);
-	Item* current = Diction->HashTable[index];
+	int index = InnerHashTable->HashFunc(key);
+	Item* current = InnerHashTable->HashTable[index];
 	while (current != nullptr)
 	{
 		if (current->Key == key)
@@ -28,11 +28,11 @@ bool Dictionary::Insert(std::string key, std::string value)
 		}
 		current = current->Next;
 	}
-	return Diction->Insert(key, value);
+	return InnerHashTable->Insert(key, value);
 }
 
 bool Dictionary::Remove(std::string key)
 {
-	return Diction->Remove(key);
+	return InnerHashTable->Remove(key);
 }
 

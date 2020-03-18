@@ -12,13 +12,9 @@ struct Treap
 	void DeleteTree(TreapNode*&);
 	void Split(TreapNode*, int, TreapNode*&, TreapNode*&);
 	TreapNode* Merge(TreapNode*, TreapNode*);
-	// unoptimized algorithm
-	TreapNode* AddElementUA(int, int);
-	// optimized algorithm
-	bool AddElementOA(int, int);
-	// unoptimized algorithm
-	TreapNode* RemoveElementUA(int);
-	// optimized algorithm
-	bool RemoveElementOA(int);
+	TreapNode* AddUnoptimized(int, int);
+	bool AddOptimized(int, int);
+	TreapNode* RemoveUnoptimized(int);
+	bool RemoveOptimized(int);
 
 };

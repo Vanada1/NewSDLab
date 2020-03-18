@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-struct TempArray
+struct PairKeyValue
 {
 	std::string Key;
 	std::string Value;

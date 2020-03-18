@@ -1,77 +1,72 @@
 #include <iostream>
-#include "Realisation.h"
 #include <ctime>
+#include "InputOutput.h"
+#include "../../CommonFuction/WorkWithFiles.h"
+#include "Realisation.h"
 
 using namespace std;
 
 int main()
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 
-	int index = 0;
-	int number = 0;
-	int control = 0;
-	bool ending = true;
-	DynamicArray arr;
-	CreatArray(arr);
+	//TODO: naming(Done)
+	bool isEnd = true;
+	//TODO:rsdn(Done)
+	DynamicArray array;
+	CreatArray(array);
 
-	while (ending)
+	while (isEnd)
 	{
-		system("pause");
 		system("cls");
-		OutputArray(arr);
+		OutputArray(array);
 		cout << "What do you want to do with the array?\n";
-		TextOutput();
-		control = Write();
-		switch (control)
+		TextOutput("menu.txt");
+		switch (ReadInt())
 		{
-		case 1:
-			cout << "Which element you want to delete\t";
-			index = Write();
-			DeletElement(arr, index);
-			break;
-
-		case 2:
-			cout << "Enter the number\n";
-			number = Write();
-			AddElement(arr, number, 0);
-			break;
-
-		case 3:
-			cout << "Enter the number\n";
-			number = Write();
-			AddElement(arr, number, arr.lenght);
-			break;
-
-		case 4:
-			cout << "Enter the index\n";
-			index = Write();
-			cout << "Enter the number\n";
-			number = Write();
-			AddElement(arr, number, index + 1);
-			break;
-		case 5:
-			Sort(arr);
-			break;
-		case 6:
-			cout << "What number are you looking for?\n";
-			number = Write();
-			if (LineSearch(arr, number, index))
+			//TODO:скобочки(Done)
+			case 1:
 			{
-				cout << "Number " << number << " in " << index << endl;
+				cout << "Which element you want to delete\t";
+				int index = ReadInt();
+				//TODO: дубль(Done)
+				ShowResult(RemoveElement(array, index));
+				break;
 			}
-			else
+			case 2:
 			{
-				cout << "There is no such number in this array\n";
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				ShowResult (AddElement(array, number, 0));
+				break;
 			}
-			break;
-
-		case 7:
-			if (CheckSort(arr))
+			case 3:
+			{
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				ShowResult (AddElement(array, number, array.Lenght));
+				break;
+			}
+			case 4:
+			{
+				cout << "Enter the index\n";
+				int index = ReadInt();
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				ShowResult(AddElement(array, number, index + 1));
+				break;
+			}
+			case 5:
+			{
+				QuickSortArray(array);
+				break;
+			}
+			case 6:
 			{
 				cout << "What number are you looking for?\n";
-				number = Write();
-				if (BinarySearch(arr, number, index))
+				int number = ReadInt();
+				int index = 0;
+				if (LineSearch(array, number, index))
 				{
 					cout << "Number " << number << " in " << index << endl;
 				}
@@ -79,23 +74,45 @@ int main()
 				{
 					cout << "There is no such number in this array\n";
 				}
+				break;
 			}
-			else
+			case 7:
 			{
-				cout << "Array is not sorted\n";
+				if (CheckSort(array))
+				{
+					cout << "What number are you looking for?\n";
+					int number = ReadInt();
+					int index = 0;
+					if (BinarySearch(array, number, index))
+					{
+						cout << "Number " << number << " in " << index << endl;
+					}
+					else
+					{
+						cout << "There is no such number in this array\n";
+					}
+				}
+				else
+				{
+					cout << "Array is not sorted\n";
+				}
+				break;
 			}
-			break;
 
-		case 9:
-			ending = false;
-			break;
-
-		default:
-			cout << "Strange command\n";
-			break;
+			case 9:
+			{
+				isEnd = false;
+				break;
+			}
+			default:
+			{
+				cout << "Strange command\n";
+				break;
+			}
 		}
+		system("pause");
 	}
-	delete[] arr.array;
+	delete[] array.Array;
 	cout << endl << "Work is done" << endl;
 	cout << endl;
 	system("pause");

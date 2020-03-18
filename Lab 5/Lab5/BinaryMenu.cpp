@@ -1,87 +1,97 @@
 #include "BinaryMenu.h"
+#include "WorkWithFiles.h"
 
 void BinaryTreeMenu()
 {
-	bool ending = true;
-	int control = 0;
-	int number = 0;
-	BinaryTree* Tree = new BinaryTree();
-	List* Temp;
+	bool isEnd = false;
+	BinaryTree* tree = new BinaryTree();
 	cout << "Enter the count of elemetns\t";
-	number = WriteInt();
-	Tree->CreateTree(number);
+	tree->CreateTree(ReadInt());
 	cout << endl;
 
-	while (ending)
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
-		ShowBinaryTree(Tree->Root, 0);
+		ShowBinaryTree(tree->Root, 0);
 		cout << endl;
 		TextOutput("BinaryMenu.txt");
-		control = WriteInt();
-		switch (control)
+		switch (ReadInt())
 		{
-		case 1:
-			cout << "Enter the number\n";
-			number = WriteInt();
-			if (Tree->AddElement(number))
+			case 1:
 			{
-				Done();
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				if (tree->AddElement(number))
+				{
+					OutputDone();
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
 			}
-			else
+			case 2:
 			{
-				Error();
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				tree->Root = tree->RemoveElement(tree->Root, number);
+				break;
 			}
-			break;
-		case 2:
-			cout << "Enter the number\n";
-			number = WriteInt();
-			Tree->Root = Tree->RemoveElement(Tree->Root, number);
-			break;
-		case 3:
-			cout << "Enter the number\n";
-			number = WriteInt();
-			cout << endl;
-			Temp = Tree->SearchElement(number);
-			ShowList(Temp);
-			if (Temp != nullptr)
+			case 3:
 			{
-				Temp->Clear();
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				cout << endl;
+				List* foundElements = tree->SearchElement(number);
+				ShowList(foundElements);
+				if (foundElements != nullptr)
+				{
+					foundElements->Clear();
+				}
+				delete foundElements;
+				break;
 			}
-			delete Temp;
-			break;
-		case 4:
-			if (Tree->Root == nullptr)
+			case 4:
 			{
-				cout << "No element\n";
+				if (tree->Root == nullptr)
+				{
+					cout << "No element\n";
+				}
+				else
+				{
+					cout << tree->SearchMax(tree->Root)->Data << endl;
+				}
+				break;
 			}
-			else 
+			case 5:
 			{
-				cout << Tree->SearchMax(Tree->Root)->Data << endl;
+				if (tree->Root == nullptr)
+				{
+					cout << "No element\n";
+				}
+				else
+				{
+					cout << tree->SearchMin(tree->Root)->Data << endl;
+				}
+				break;
 			}
-			break;
-		case 5:
-			if (Tree->Root == nullptr)
+			case 9:
 			{
-				cout << "No element\n";
+				isEnd = true;
+				break;
 			}
-			else
+			default:
 			{
-				cout << Tree->SearchMin(Tree->Root)->Data << endl;
+				cout << "Strange comand\n";
+				break;
 			}
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			cout << "Strange comand\n";
-			break;
 		}
 	}
-	if (Tree->Root != nullptr)
+	if (tree->Root != nullptr)
 	{
-		Tree->DeleteTree(Tree->Root);
+		tree->DeleteTree(tree->Root);
 	}
-	delete Tree;
+	delete tree;
 }

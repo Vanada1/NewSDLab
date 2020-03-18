@@ -7,9 +7,10 @@ struct QueueTwoStack
 {
 	Stack* Main;
 	Stack* Peripheral;
+	void ClearQueue();
 	void CreateQueue();
 	void Enqueue(int);
-	int Dequeue();
+	bool Dequeue(int&);
 	void Delete();
 	//For array flipping
 	void InvertedStack(Stack*&, Stack*&);

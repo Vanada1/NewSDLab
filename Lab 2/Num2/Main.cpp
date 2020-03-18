@@ -1,96 +1,181 @@
 #include <iostream>
-#include "Function.h"
 #include <ctime>
+#include "ListFunc.h"
+#include "InputOutput.h"
+#include "../../CommonFuction/WorkWithFiles.h"
+#define SWITCH 0
 
 using namespace std;
 
 int main()
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 
-	bool ending = true;
-	List* lst = new List();
-	int quantity = 0;
-	int control = 0;
-	int number = 0;
-	int index = 0;
-
+	bool isEnd = false;
+	//TODO:rsdn(Done)
+	List* list = new List();
+	//TODO: RSDN(Done)
 	cout << "Enter the number of elements" << endl;
-	quantity = Write();
+	int quantity = ReadInt();
 	cout << endl;
+	long double elapsed_secs = 0;
+#if SWITCH == 1
+	clock_t begin = clock();
+#endif
 
-	//clock_t begin = clock();
 	for (int i = 0; i < quantity; i++)
 	{
-		InsertInList(lst, rand() % 100, lst->Size);
+		InsertInList(list, rand() % 100, list->Size, elapsed_secs);
 	}
-	//clock_t end = clock();
-	//long double elapsed_secs = long double(end - begin) / CLOCKS_PER_SEC;
-	//OutputTime(elapsed_secs, "create of list ");
 
-	while (ending)
+#if SWITCH == 1
+	clock_t end = clock();
+	elapsed_secs = FuncCounting(begin, end);
+	OutputTime(elapsed_secs, "create of list ");
+#endif
+
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
-		OutputList(lst);
+		OutputList(list);
 		cout << "What do you want to do with the array?\n";
-		TextOutput();
-		control = Write();
-
-		switch (control)
+		TextOutput("menu.txt");
+		switch (ReadInt())
 		{
-		case 1:
-			cout << "Enter index\n";
-			index = Write();
-			DeleteElement(lst, index);
-			break;
-		case 2:
-			cout << "Enter the number\n";
-			number = Write();
-			InsertInList(lst, number, 0);
-			break;
-		case 3:
-			cout << "Enter the number\n";
-			number = Write();
-			InsertInList(lst, number, lst->Size);
-			break;
-		case 4:
-			cout << "Enter the number\n";
-			number = Write();
-			cout << "Enter index\n";
-			index = Write();
-			InsertInList(lst, number, index + 1);
-			break;
-		case 5:
-			cout << "Enter the number\n";
-			number = Write();
-			cout << "Enter index\n";
-			index = Write();
-			InsertInList(lst, number, index);
-			break;
-		case 6:
-			Sort(lst);
-			break;
-		case 7:
-			cout << "What number do you want to find?\n";
-			number = Write();
-			LineSearch(lst, number);
-			break;
-		case 8:
-			OutputListBack(lst);
-			break;
-		case 9:
-			ending = false;
-			break;
-		case 10:
-			cout << "Insert quantity \n";
-			cin >> quantity;
-			AddElement(lst, quantity);
-		default:
-			break;
+			//TODO:rsdn(Done)
+			case 1:
+			{
+				cout << "Enter index\n";
+				int index = ReadInt();
+				if (DeleteElement(list, index, elapsed_secs))
+				{
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "delete element ");
+					#endif
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
+			}
+			case 2:
+			{
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				if (InsertInList(list, number, 0, elapsed_secs))
+				{
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
+			}
+			case 3:
+			{
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				if (InsertInList(list, number, list->Size, elapsed_secs))
+				{
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
+			}
+			case 4:
+			{
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				cout << "Enter index\n";
+				int index = ReadInt();
+				if (InsertInList(list, number, index + 1, elapsed_secs))
+				{
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
+			}
+			case 5:
+			{
+				cout << "Enter the number\n";
+				int number = ReadInt();
+				cout << "Enter index\n";
+				int index = ReadInt();
+				if (InsertInList(list, number, index, elapsed_secs))
+				{
+					OutputDone();
+					#if SWITCH == 1
+						OutputTime(elapsed_secs, "add element ");
+					#endif
+				}
+				else
+				{
+					OutputError();
+				}
+				break;
+			}
+			case 6:
+			{
+				InsertionSort(list);
+				break;
+			}
+			case 7:
+			{
+				cout << "What number do you want to find?\n";
+				int number = ReadInt();
+				int index = 0;
+				if (LineSearch(list, number, index))
+				{
+					cout << "The numder " << number << " in " << index << " cell\n";
+				}
+				else
+				{
+					cout << "Not found\n";
+				}
+				break;
+			}
+			case 8:
+			{
+				OutputListBack(list);
+				break; 
+			}
+			case 9:
+			{
+				isEnd = true;
+				break;
+			}
+			case 10:
+			{
+				cout << "Insert quantity \n";
+				cin >> quantity;
+				OutputTime(AddElement(list, quantity), "add elements ");
+			}
+			default:
+			{
+				break;
+			}
 		}
 	}
-	DeleteList(lst);
+	DeleteList(list);
 	cout << endl << "Work is done" << endl;
 	cout << endl;
 	system("pause");

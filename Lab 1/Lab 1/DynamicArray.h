@@ -2,7 +2,7 @@
 
 struct DynamicArray
 {
-	int* array;
-	int capacity;
-	int lenght;
+	int* Array;
+	int Capacity;
+	int Lenght;
 };

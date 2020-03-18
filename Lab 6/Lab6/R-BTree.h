@@ -9,10 +9,6 @@ struct RBTree
 	bool Insert(int);
 	bool DeleteElem(RBTreeNode*);
 	bool SearchElem(RBTreeNode*&, int);
-	void RotateLeft(RBTreeNode*);
-	void RotateRight(RBTreeNode*);
-	void InsertFixup(RBTreeNode*);
-	void DeleteFixup(RBTreeNode*);
 	void ClearTree(RBTreeNode*);
 
 	RBTree()
@@ -20,4 +16,11 @@ struct RBTree
 		Root = nullptr;
 		Nil = new RBTreeNode();
 	}
+private:
+	void RotateLeft(RBTreeNode*);
+	void RotateRight(RBTreeNode*);
+	void InsertFixup(RBTreeNode*);
+	void InsertFixupBranch(RBTreeNode*, bool);
+	void DeleteFixup(RBTreeNode*);
+	void DeleteFixupBranch(RBTreeNode*, bool);
 };

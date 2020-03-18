@@ -7,55 +7,65 @@ using namespace std;
 
 void MenuQueueStack()
 {
-	QueueTwoStack* stack = new QueueTwoStack();
+	//TODO: Naming(Done)
+	QueueTwoStack* queue = new QueueTwoStack();
 	bool IsNotDelete = false;
-	bool ending = true;
-	int control = 0;
-	int number = 0;
+	bool isEnd = false;
+	//TODO: Почему здесь?(DOne)
 
-	while (ending)
+	while (!isEnd)
 	{
 		system("pause");
 		system("cls");
 		if (!IsNotDelete)
 		{
-			stack->CreateQueue();
+			queue->CreateQueue();
 			IsNotDelete = true;
 		}
-		ShowStackQueue(stack->Main);
+		ShowStackQueue(queue->Main);
 		TextOutput("QueueStak_menu.txt");
-		control = Write();
-		switch (control)
+		switch (ReadInt())
 		{
-		case 1:
-			cout << "Enter the element\n";
-			number = Write();
-			stack->Enqueue(number);
-			break;
-		case 2:
-			number = stack->Dequeue();
-			if (number == -1)
+			//TODO: RSDN(Done)
+			case 1:
 			{
-				cout << "Nothing return\n";
+				cout << "Enter the element\n";
+				int number = ReadInt();
+				queue->Enqueue(number);
+				break;
 			}
-			else
+			case 2:
 			{
-				cout << "Number " << number << " out of line\n";
+				int number; 
+				if (queue->Dequeue(number))
+				{
+					cout << "Nothing return\n";
+				}
+				else
+				{
+					cout << "Number " << number << " out of line\n";
+				}
+				break;
 			}
-			break;
-		case 3:
-			stack->Delete();
-			IsNotDelete = false;
-			break;
-		case 9:
-			ending = false;
-			break;
-		default:
-			cout << "Wrong\n";
-			break;
+			case 3:
+			{
+				queue->Delete();
+				IsNotDelete = false;
+				break;
+			}
+			case 9:
+			{
+				isEnd = true;
+				break;
+			}
+			default:
+			{
+				cout << "Wrong\n";
+				break;
+			}
 		}
 	}
-	stack->Main->ClearStack();
-	stack->Peripheral->ClearStack();
-	delete stack;
+	//TODO: вынести в метод (Done)
+	queue->ClearQueue();
+	delete queue;
 }
